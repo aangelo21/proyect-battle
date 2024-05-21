@@ -63,7 +63,7 @@ main {
 }
 
 #pantalla-inicio {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: black;
@@ -89,5 +89,5 @@ main {
 }
 
 #pantalla-juego{
-  display: grid;
+  display: none;
 }

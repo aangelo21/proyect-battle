@@ -25,8 +25,13 @@ inicio.addEventListener("click", () => {
 })
 
 botonAtaque.addEventListener("click", () => {
-    player.attack
-    console.log(player.attack)
+    let atacando = enemy.health -= player.attack
+    console.log(atacando)
+    if (atacando <= 0){
+        combate.style.display = "none"
+        final.style.display = "flex"
+    }
+    
 })
 
 botonDefensa.addEventListener("click", () =>{
