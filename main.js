@@ -5,6 +5,8 @@ let final = document.getElementById("pantalla-game-over");
 let botonAtaque = document.getElementById("boton-atacar")
 let botonDefensa = document.getElementById("boton-defender")
 let botonCura = document.getElementById("boton-curar")
+let allButtons = document.getElementsByClassName("botones")
+let timerId;
 
 // Personaje//
 
@@ -37,6 +39,7 @@ botonAtaque.addEventListener("click", () => {
 botonDefensa.addEventListener("click", () =>{
     let dañoResultante = enemy.attack * 0
     console.log(dañoResultante)
+    variable=1
 })
 
 botonCura.addEventListener("click", () => {
@@ -46,4 +49,9 @@ botonCura.addEventListener("click", () => {
 
     }
     console.log(vidaTotal)
+})
+
+allButtons.addEventListener("click", () => {
+    timerId = setTimeout(console.log("Turno enemigo"), 1000)
+    
 })

@@ -28,9 +28,8 @@ class Enemy {
         return this.defence
     }
 
- /*    healing() { 
-        let vidaTotal = this.health += this.heal
-        return vidaTotal
-    } */
+    yourTurn(){
+        
+    }
 }
 

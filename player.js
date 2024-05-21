@@ -27,10 +27,6 @@ class Player {
     defend() {
         return this.defence
     }
-
-    healing() {
-        this.health += this.heal
-    }
 }
 
 
