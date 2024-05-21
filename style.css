@@ -9,6 +9,7 @@ main {
     width: 1000px;
     display: inline;
 }
+
 .container {  display: grid;
     height: 800px;
     width: 1000px;
@@ -58,6 +59,26 @@ main {
     justify-self: center;
     align-self: center;
     background-color: orange;
+}
+
+#pantalla-inicio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  height: 800px;
+  width: 1000px;
+}
+
+#inicio {
+  width: 150px;
+  height: 80px;
+  font-size: larger;
+  font-style: italic;
+  background-color: green;
+  border-color: black;
+  border-width: 8px;
+  border-style: inset; 
 }
   
   
