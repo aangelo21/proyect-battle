@@ -1,16 +1,17 @@
 body {
-    height: 800px;
-    width: 1000px;
+    
     background-color: rgb(77, 77, 77);
+    
 }
 
 main {
     height: 800px;
     width: 1000px;
-    display: inline;
+    
+    background-color: blue;
 }
 
-.container {  display: grid;
+.container {  display: none;
     height: 800px;
     width: 1000px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -22,6 +23,7 @@ main {
       "Barra-de-vida Barra-de-vida barra-de-vida-2 barra-de-vida-2 "
       "Personaje Personaje Enemigo Enemigo"
       "botones botones botones botones";
+      background-color: red;
 }
   
   .Personaje { 
@@ -52,6 +54,7 @@ main {
     justify-self: center;
     align-self: center;
     background-color: lightcoral; 
+    
 }
   
   .botones { 
@@ -65,9 +68,12 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: green;
+  background-color: black;
   height: 800px;
   width: 1000px;
+  background-image: url(/imagenes/inicio.jpg);
+  background-repeat: no-repeat;
+  
 }
 
 #inicio {
@@ -75,10 +81,12 @@ main {
   height: 80px;
   font-size: larger;
   font-style: italic;
-  background-color: green;
+  background-color: brown;
   border-color: black;
   border-width: 8px;
   border-style: inset; 
 }
   
-  
+#pantalla-game-over {
+  display: none;
+}

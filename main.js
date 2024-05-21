@@ -17,7 +17,7 @@ function startGame() {
 
 
 inicio.addEventListener("click", () => {
-    board.style.display = "block";
-    inicio.style.display = "none"
+    board[0].style.display = "grid";
+    inicio.style.display = "none";
     startGame()
 })
