@@ -4,7 +4,7 @@ class Enemy {
         this.y = y;
         this.width = 50;
         this.heigth = 50;
-        this.life = 100;
+        this.health = 100;
         this.attack = 10;
         this.defence = 10;
         this.heal = 25;
@@ -17,7 +17,7 @@ class Enemy {
     }
 
     receiveDamage(damage) {
-        this.life -= damage
+        this.health -= damage
     }
 
     attack() {
@@ -28,8 +28,9 @@ class Enemy {
         return this.defence
     }
 
-    healing() {
-        this.life += this.heal
-    }
+ /*    healing() { 
+        let vidaTotal = this.health += this.heal
+        return vidaTotal
+    } */
 }
 

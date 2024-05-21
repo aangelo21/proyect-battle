@@ -4,7 +4,7 @@ class Player {
         this.y = y;
         this.width = 50;
         this.heigth = 50;
-        this.life = 100;
+        this.health = 100;
         this.attack = 10;
         this.defence = 10;
         this.heal = 25;
@@ -17,7 +17,7 @@ class Player {
     }
 
      receiveDamage(damage) {
-        this.life -= damage
+        this.health -= damage
     }
 
     attack() {
@@ -29,7 +29,7 @@ class Player {
     }
 
     healing() {
-        this.life += this.heal
+        this.health += this.heal
     }
 }
 
