@@ -16,6 +16,7 @@ class Enemy {
 
     receiveDamage(damage) {
         this.health -= damage
+        barraDeVidaEnemigo[0].innerText = this.health
     }
 
     attack() {
@@ -23,31 +24,28 @@ class Enemy {
     }
 
     defend() {
-        return this.defence
+        let damage = player.attack * 0
+        console.log(damage, "vamo")
+        return damage
+       
     }
 
-    yourTurn(){
-        
-    }
-    
     turnoEnemigo (){
         let enemigoTurno = Math.random()
         if (enemigoTurno <= 0.33){
-            let enemigoAtacando = player.health -= enemy.attack
-            if (enemigoAtacando <= 0){
-                combate.style.display = "none"
-                final.style.display = "flex"
-            }
-               return enemy.attack
+         player.receiveDamage(this.attack)
+         return this.attack
+            
         } else if(enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
-            return enemy.defend
+            return this.defend
         } else {
-            let vidaTotalEnemy = enemy.health += enemy.heal
+            let vidaTotalEnemy = this.health += this.heal
             if (vidaTotalEnemy >= 100) {
                 vidaTotalEnemy = 100
                 return vidaTotalEnemy
             }
         }
+        cambioPantalla()       
         return enemigoTurno
         
     }

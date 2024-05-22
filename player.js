@@ -14,8 +14,9 @@ class Player {
         inicio.appendChild(this.sprite);
     }
 
-     receiveDamage(damage) {
+    receiveDamage(damage) {
         this.health -= damage
+        barraDeVidaPlayer[0].innerText = this.health
     }
 
     attack() {

@@ -30,19 +30,14 @@ inicio.addEventListener("click", () => {
 })
 
 botonAtaque.addEventListener("click", () => {
-    let atacando = enemy.health -= player.attack
-    console.log(atacando)
-    if (atacando <= 0){
-        combate.style.display = "none"
-        final.style.display = "flex"
-    }
-    
+enemy.receiveDamage(player.attack)
+cambioPantalla()
 })
 
 botonDefensa.addEventListener("click", () =>{
-    let dañoResultante = enemy.attack * 0
-    console.log(dañoResultante)
+    enemy.attack * 0
     variable=1
+    cambioPantalla()
 })
 
 botonCura.addEventListener("click", () => {
@@ -51,13 +46,20 @@ botonCura.addEventListener("click", () => {
         vidaTotal = 100
 
     }
-    console.log(vidaTotal)
+    cambioPantalla()
 })
 
 allButtons[0].addEventListener("click", () => {
-    timerId = setTimeout(enemy.turnoEnemigo, 1000)
+    timerId = setTimeout(enemy.turnoEnemigo(), 500)
     
 })
 
 barraDeVidaPlayer[0].innerText = player.health
 barraDeVidaEnemigo[0].innerText = enemy.health
+
+function cambioPantalla(){
+    if (player.health <= 0 || enemy.health <= 0){
+        combate.style.display = "none"
+        final.style.display = "flex"
+    }
+}
