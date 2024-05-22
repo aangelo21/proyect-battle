@@ -26,8 +26,16 @@ class Player {
     defend() {
         return this.defence
     }
+    
+    healing() {
+        this.health += this.heal
+        if (this.health >= 100) {
+            this.health = 100
+            barraDeVidaPlayer[0].innerText = this.health
+        return this.health
+    }
 }
 
 
 
-
+}

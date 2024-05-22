@@ -41,17 +41,12 @@ botonDefensa.addEventListener("click", () =>{
 })
 
 botonCura.addEventListener("click", () => {
-    let vidaTotal = player.health += player.heal
-    if (vidaTotal >= 100) {
-        vidaTotal = 100
-
-    }
+    player.healing()    
     cambioPantalla()
 })
 
 allButtons[0].addEventListener("click", () => {
     timerId = setTimeout(enemy.turnoEnemigo(), 500)
-    
 })
 
 barraDeVidaPlayer[0].innerText = player.health

@@ -40,16 +40,26 @@ class Enemy {
             console.log("defiendo")
             return this.defend
         } else {
-            let vidaTotalEnemy = this.health += this.heal
-            if (vidaTotalEnemy >= 100) {
-                vidaTotalEnemy = 100
+                this.healing()
                 console.log("me curo")
-                return vidaTotalEnemy
-            }
+                barraDeVidaEnemigo[0].innerText = this.health
+                return this.health
+            
         }
-        cambioPantalla()       
-        return enemigoTurno
+        
         
     }
+
+    healing() {
+        this.health += this.heal
+        if (this.health >= 100) {
+            this.health = 100
+            console.log("me curo")
+            barraDeVidaEnemigo[0].innerText = this.health
+        return this.health
+    }
+}
+
+
 }
 
