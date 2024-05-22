@@ -40,7 +40,7 @@ main {
     align-self: center;
 }
   
-  .Barra-de-vida { 
+  .barra-de-vida { 
     grid-area: Barra-de-vida;
     justify-self: center;
     align-self: center; 
@@ -63,7 +63,7 @@ main {
 }
 
 #pantalla-inicio {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   background-color: black;
@@ -89,5 +89,5 @@ main {
 }
 
 #pantalla-juego{
-  display: none;
+  display: grid;
 }

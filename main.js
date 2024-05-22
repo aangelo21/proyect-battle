@@ -7,11 +7,14 @@ let botonDefensa = document.getElementById("boton-defender")
 let botonCura = document.getElementById("boton-curar")
 let allButtons = document.getElementsByClassName("botones")
 let timerId;
+let barraDeVidaPlayer = document.getElementsByClassName("barra-de-vida")
+let barraDeVidaEnemigo = document.getElementsByClassName("barra-de-vida-2")
+
 
 // Personaje//
 
-let player = new Player(400, 500);
-let enemy = new Enemy(400, 500)
+let player = new Player();
+let enemy = new Enemy()
 
 
 function startGame() {
@@ -51,7 +54,10 @@ botonCura.addEventListener("click", () => {
     console.log(vidaTotal)
 })
 
-allButtons.addEventListener("click", () => {
-    timerId = setTimeout(console.log("Turno enemigo"), 1000)
+allButtons[0].addEventListener("click", () => {
+    timerId = setTimeout(enemy.turnoEnemigo, 1000)
     
 })
+
+barraDeVidaPlayer[0].innerText = player.health
+barraDeVidaEnemigo[0].innerText = enemy.health
