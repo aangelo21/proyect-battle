@@ -14,8 +14,9 @@ class Player {
         inicio.appendChild(this.sprite);
     }
 
-    receiveDamage(damage) {
-        this.health -= damage
+    receiveDamage() {
+        console.log(enemy.attack)
+        this.health -= enemy.attack
         barraDeVidaPlayer[0].innerText = this.health
     }
 
@@ -24,7 +25,13 @@ class Player {
     }
 
     defend() {
-        return this.defence
+        console.log(defendStatus)
+        if (defendStatus){
+            let attackProtect = enemy.attack = 0
+            console.log("me protegi")
+            return attackProtect
+        } else 
+        return enemy.attack
     }
     
     healing() {

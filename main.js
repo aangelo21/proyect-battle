@@ -9,7 +9,7 @@ let allButtons = document.getElementsByClassName("botones")
 let timerId;
 let barraDeVidaPlayer = document.getElementsByClassName("barra-de-vida")
 let barraDeVidaEnemigo = document.getElementsByClassName("barra-de-vida-2")
-
+let defendStatus = false 
 
 // Personaje//
 
@@ -30,23 +30,29 @@ inicio.addEventListener("click", () => {
 })
 
 botonAtaque.addEventListener("click", () => {
+    console.log(defendStatus)
 enemy.receiveDamage(player.attack)
 cambioPantalla()
 })
 
 botonDefensa.addEventListener("click", () =>{
-    enemy.attack * 0
-    variable=1
+    defendStatus = true
+    if (defendStatus) {
+        player.defend()
+        defendStatus = false
+    }
+
+    console.log(defendStatus)
     cambioPantalla()
 })
-
+console.log(player.defend())
 botonCura.addEventListener("click", () => {
-    player.healing()    
+    player.healing()  
     cambioPantalla()
 })
 
-allButtons[0].addEventListener("click", () => {
-    timerId = setTimeout(enemy.turnoEnemigo(), 500)
+allButtons[0].addEventListener("click", function() {
+    timerId = setTimeout(turnoEnemigo, 1000)
 })
 
 barraDeVidaPlayer[0].innerText = player.health
@@ -57,4 +63,25 @@ function cambioPantalla(){
         combate.style.display = "none"
         final.style.display = "flex"
     }
+}
+
+function turnoEnemigo (){
+    let enemigoTurno = Math.random()
+    if (enemigoTurno <= 0.33){
+     player.receiveDamage(enemy.attack)
+     console.log("ataco")
+     return enemy.attack
+        
+    } else if(enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
+        console.log("defiendo")
+        return enemy.defend()
+    } else {
+        enemy.healing()
+            console.log("me curo")
+            barraDeVidaEnemigo[0].innerText = enemy.health
+            return enemy.health
+        
+    }
+    
+    
 }
