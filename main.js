@@ -16,6 +16,7 @@ let dañoRecibido;
 let botonRestart = document.getElementsByClassName("game-over-boton")
 let contadorShield = -1;
 let contador = 0;
+let contadorShieldEnemy = -1;
 
 // Personaje
 
@@ -124,13 +125,16 @@ function cambioPantalla(){
      console.log("El enemigo te ataca")
      player.receiveDamage(enemy.attack)
      cambioPantalla()
-    } else if (enemigoTurno <= 0.33 && defenceStatusPersonaje === true) {
+    } else if ( enemigoTurno <= 0.33 && defenceStatusPersonaje === true) {
         console.log("El enemigo te rompe el escudo")
         defenceStatusPersonaje = false
         cambioPantalla()
-    } else if(enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
+    } else if( contador >= contadorShieldEnemy && enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
         console.log("El enemigo se está protegiendo")
         cambioPantalla()
+        contadorShieldEnemy = contador + 3
+        console.log(contadorShieldEnemy)
+        console.log(contador >= contadorShieldEnemy)
         return enemy.defend()
     } else {
         enemy.healing()
