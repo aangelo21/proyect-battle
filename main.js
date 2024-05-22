@@ -14,6 +14,8 @@ let defenceStatusPersonaje = false
 let defenceStatusEnemigo = false
 let dañoRecibido;
 let botonRestart = document.getElementsByClassName("game-over-boton")
+let contadorShield = -1;
+let contador = 0;
 
 // Personaje
 
@@ -60,11 +62,22 @@ botonAtaque.addEventListener("click", () => {
     }
 cambioPantalla() 
 })
+function deshabilitar(){
+    if(contadorShield >= contador){
+    botonDefensa.setAttribute("disabled", "")
+    }
+    else {
+    botonDefensa.removeAttribute("disabled", "")
+    }
+}
 
 botonDefensa.addEventListener("click", () =>{
+    //if(defenceStatusPersonaje === true || contadorShield >= contador)
     player.defend()
     console.log("Te proteges")
     cambioPantalla()
+    contadorShield = contador + 3
+    console.log(contadorShield)
 })
 botonCura.addEventListener("click", () => {
     player.healing()  
@@ -76,6 +89,7 @@ allButtons[0].addEventListener("click", function() {
     allButtons[0].style.display = "none"
     timerId = setTimeout(turnoEnemigo, 1000)
     cambioPantalla()
+    deshabilitar()
 })
 
 //Barra de vida inicio
@@ -97,9 +111,13 @@ function cambioPantalla(){
 }
 
 //Acciones enemigo
-
-function turnoEnemigo (){
+ 
+ 
+    function turnoEnemigo (){
     cambioPantalla()
+    contador ++
+    deshabilitar()
+    console.log("Acaba el turno " + contador)
     allButtons[0].style.display = "block"
     let enemigoTurno = Math.random()
     if (enemigoTurno <= 0.33 && defenceStatusPersonaje === false){
@@ -107,7 +125,7 @@ function turnoEnemigo (){
      player.receiveDamage(enemy.attack)
      cambioPantalla()
     } else if (enemigoTurno <= 0.33 && defenceStatusPersonaje === true) {
-        console.log("Enemigo te rompe el escudo")
+        console.log("El enemigo te rompe el escudo")
         defenceStatusPersonaje = false
         cambioPantalla()
     } else if(enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
@@ -125,6 +143,5 @@ function turnoEnemigo (){
     
 }
     
-    
-    
+   
    
