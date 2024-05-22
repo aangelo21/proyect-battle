@@ -25,7 +25,6 @@ class Enemy {
 
     defend() {
         let damage = player.attack * 0
-        console.log(damage, "vamo")
         return damage
        
     }
@@ -34,14 +33,17 @@ class Enemy {
         let enemigoTurno = Math.random()
         if (enemigoTurno <= 0.33){
          player.receiveDamage(this.attack)
+         console.log("ataco")
          return this.attack
             
         } else if(enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
+            console.log("defiendo")
             return this.defend
         } else {
             let vidaTotalEnemy = this.health += this.heal
             if (vidaTotalEnemy >= 100) {
                 vidaTotalEnemy = 100
+                console.log("me curo")
                 return vidaTotalEnemy
             }
         }
