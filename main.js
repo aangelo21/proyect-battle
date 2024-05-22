@@ -13,6 +13,7 @@ let barraDeVidaEnemigo = document.getElementsByClassName("barra-de-vida-2")
 let defenceStatusPersonaje = false
 let defenceStatusEnemigo = false
 let dañoRecibido;
+let botonRestart = document.getElementsByClassName("game-over-boton")
 
 // Personaje
 
@@ -26,7 +27,16 @@ function startGame() {
     enemy.insertEnemy()
 }
 
+function restartGame(){
+    enemy.health = 100
+    player.health = 100
+    defenceStatusEnemigo = false
+    defenceStatusPersonaje = false
+    barraDeVidaPlayer[0].innerText = player.health
+    barraDeVidaEnemigo[0].innerText = enemy.health
+}
 //Botones
+
 
 inicio.addEventListener("click", () => {
     combate.style.display = "grid";
@@ -34,21 +44,31 @@ inicio.addEventListener("click", () => {
     startGame()
 })
 
+botonRestart[0].addEventListener("click", () => {
+    gameOver.style.display = "none"
+    inicio.style.display = "flex"
+    restartGame()
+})
+
 botonAtaque.addEventListener("click", () => {
     if(defenceStatusEnemigo === true){
         defenceStatusEnemigo = false
+        console.log("Rompes el escudo del enemigo")
     } else {
        enemy.receiveDamage(player.attack)
+       console.log("Atacas al enemigo")
     }
 cambioPantalla() 
 })
 
 botonDefensa.addEventListener("click", () =>{
     player.defend()
+    console.log("Te proteges")
     cambioPantalla()
 })
 botonCura.addEventListener("click", () => {
     player.healing()  
+    console.log("Te curas")
     cambioPantalla()
 })
 
@@ -68,7 +88,7 @@ barraDeVidaEnemigo[0].innerText = enemy.health
 function cambioPantalla(){
     if (player.health <= 0){
         combate.style.display = "none"
-        gameOver.style.display = "flex"
+        gameOver.style.display = "grid"
     } else if (enemy.health <= 0) {
         combate.style.display = "none"
         victoria.style.display = "grid"
@@ -83,20 +103,20 @@ function turnoEnemigo (){
     allButtons[0].style.display = "block"
     let enemigoTurno = Math.random()
     if (enemigoTurno <= 0.33 && defenceStatusPersonaje === false){
-     console.log("ataco")
+     console.log("El enemigo te ataca")
      player.receiveDamage(enemy.attack)
      cambioPantalla()
     } else if (enemigoTurno <= 0.33 && defenceStatusPersonaje === true) {
-        console.log("te rompo el escudo")
+        console.log("Enemigo te rompe el escudo")
         defenceStatusPersonaje = false
         cambioPantalla()
     } else if(enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
-        console.log("defiendo")
+        console.log("El enemigo se está protegiendo")
         cambioPantalla()
         return enemy.defend()
     } else {
         enemy.healing()
-            console.log("me curo")
+            console.log("El enemigo se está curando")
             barraDeVidaEnemigo[0].innerText = enemy.health
             cambioPantalla()
             return enemy.health

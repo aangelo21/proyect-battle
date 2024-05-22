@@ -24,6 +24,17 @@ main {
       background-color: black;
 }
   
+.container-game-over{
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". game-over-texto ."
+    ". . ."
+    ". game-over-boton ."; 
+}
+
   .Personaje { 
     grid-area: Personaje;
     justify-self: center;
@@ -60,16 +71,7 @@ main {
     background-color: orange;
 }
 
-#pantalla-inicio {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  background-image: url(/imagenes/inicio.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-}
+
 
 #inicio {
   width: 150px;
@@ -81,18 +83,20 @@ main {
   border-width: 8px;
   border-style: inset; 
 }
+
+#pantalla-inicio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  background-image: url(/imagenes/inicio.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
   
-#pantalla-game-over {
-  display: block;
-  position: relative;
-  background-image: url(imagenes/perdiste.webp);
-  align-self: center;
-
 }
-
+  
 #pantalla-juego{
   display: none;
-  
   background-size: cover;
 }
 
@@ -101,11 +105,24 @@ main {
   background-size: cover;
 }
 
-.game-over-texto{
-  display: block;
-  position: absolute;
-  top: 10px;
-  left: 500px;
+#pantalla-game-over {
+  display: none;
+  background-image: url(imagenes/lose.jpg);
+  background-size: cover;
+}
 
+.game-over-texto{
+  grid-area: game-over-texto;
+  align-self: center;
+  justify-self: center;
   font-size: 64px;
+  background-color: black;
+  color: white;
+}
+
+.game-over-boton {
+  grid-area: game-over-boton;
+  justify-self: center;
+  align-self: center;
+  font-size: 32px;
 }
