@@ -2,7 +2,7 @@ class Player {
     constructor() {
         this.width = 50;
         this.heigth = 50;
-        this.health = 100;
+        this.health = 1;
         this.attack = 10;
         this.defence = 10;
         this.heal = 25;

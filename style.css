@@ -28,8 +28,6 @@ main {
     grid-area: Personaje;
     justify-self: center;
     align-self: center;
-    background-color: blue;
-    color: white;
 }
   
   .Enemigo { 
@@ -63,11 +61,11 @@ main {
 }
 
 #pantalla-inicio {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   background-color: black;
-  background-image: url(/imagenes/inicio.jpg);
+  background-image: url(/imagenes/inicio.webp);
   background-repeat: no-repeat;
   background-size: cover;
   
@@ -85,9 +83,29 @@ main {
 }
   
 #pantalla-game-over {
-  display: none;
+  display: block;
+  position: relative;
+  background-image: url(imagenes/perdiste.webp);
+  align-self: center;
+
 }
 
 #pantalla-juego{
   display: none;
+  
+  background-size: cover;
+}
+
+#pantalla-victoria {
+  display: none;
+  background-size: cover;
+}
+
+.game-over-texto{
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 500px;
+
+  font-size: 64px;
 }
