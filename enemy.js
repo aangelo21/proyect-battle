@@ -21,20 +21,16 @@ class Enemy {
 
     attack() {
         return this.attack
-      
     }
 
     defend() {
-        let damage = player.attack * 0
-        return damage
-       
+         defenceStatusEnemigo = true      
     }
 
 
 
     healing() {
         this.health += this.heal
-        console.log(this.health)
         if (this.health >= 100) {
             this.health = 100
             barraDeVidaEnemigo[0].innerText = this.health
@@ -45,4 +41,3 @@ class Enemy {
 
 
 }
-

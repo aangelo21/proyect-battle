@@ -15,7 +15,6 @@ class Player {
     }
 
     receiveDamage() {
-        console.log(enemy.attack)
         this.health -= enemy.attack
         barraDeVidaPlayer[0].innerText = this.health
     }
@@ -25,13 +24,7 @@ class Player {
     }
 
     defend() {
-        console.log(defendStatus)
-        if (defendStatus){
-            let attackProtect = enemy.attack = 0
-            console.log("me protegi")
-            return attackProtect
-        } else 
-        return enemy.attack
+      defenceStatusPersonaje = true 
     }
     
     healing() {
@@ -42,7 +35,5 @@ class Player {
         return this.health
     }
 }
-
-
 
 }

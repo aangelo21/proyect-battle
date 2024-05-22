@@ -9,19 +9,23 @@ let allButtons = document.getElementsByClassName("botones")
 let timerId;
 let barraDeVidaPlayer = document.getElementsByClassName("barra-de-vida")
 let barraDeVidaEnemigo = document.getElementsByClassName("barra-de-vida-2")
-let defendStatus = false 
+let defenceStatusPersonaje = false
+let defenceStatusEnemigo = false
+let dañoRecibido;
 
-// Personaje//
+// Personaje
 
 let player = new Player();
 let enemy = new Enemy()
 
+//Iniciar juego
 
 function startGame() {
     player.insertPlayer()
     enemy.insertEnemy()
 }
 
+//Botones
 
 inicio.addEventListener("click", () => {
     combate.style.display = "grid";
@@ -30,33 +34,34 @@ inicio.addEventListener("click", () => {
 })
 
 botonAtaque.addEventListener("click", () => {
-    console.log(defendStatus)
-enemy.receiveDamage(player.attack)
-cambioPantalla()
+    if(defenceStatusEnemigo === true){
+        defenceStatusEnemigo = false
+    } else {
+       enemy.receiveDamage(player.attack)
+    }
+cambioPantalla() 
 })
 
 botonDefensa.addEventListener("click", () =>{
-    defendStatus = true
-    if (defendStatus) {
-        player.defend()
-        defendStatus = false
-    }
-
-    console.log(defendStatus)
+    player.defend()
     cambioPantalla()
 })
-console.log(player.defend())
 botonCura.addEventListener("click", () => {
     player.healing()  
     cambioPantalla()
 })
 
 allButtons[0].addEventListener("click", function() {
+    allButtons[0].style.display = "none"
     timerId = setTimeout(turnoEnemigo, 1000)
 })
 
+//Barra de vida inicio
+
 barraDeVidaPlayer[0].innerText = player.health
 barraDeVidaEnemigo[0].innerText = enemy.health
+
+//Cambio de pantalla
 
 function cambioPantalla(){
     if (player.health <= 0 || enemy.health <= 0){
@@ -65,13 +70,18 @@ function cambioPantalla(){
     }
 }
 
+//Acciones enemigo
+
 function turnoEnemigo (){
+    allButtons[0].style.display = "block"
     let enemigoTurno = Math.random()
-    if (enemigoTurno <= 0.33){
-     player.receiveDamage(enemy.attack)
+    if (enemigoTurno <= 0.33 && defenceStatusPersonaje === false){
      console.log("ataco")
-     return enemy.attack
-        
+     player.receiveDamage(enemy.attack)
+         
+    } else if (enemigoTurno <= 0.33 && defenceStatusPersonaje === true) {
+        console.log("te rompo el escudo")
+        defenceStatusPersonaje = false
     } else if(enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
         console.log("defiendo")
         return enemy.defend()
@@ -81,7 +91,10 @@ function turnoEnemigo (){
             barraDeVidaEnemigo[0].innerText = enemy.health
             return enemy.health
         
-    }
-    
+    } 
     
 }
+    
+    
+    
+   
