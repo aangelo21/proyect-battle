@@ -30,7 +30,7 @@ main {
 
 #pantalla-juego {
   display: none;
-  background-image: url(imagenes/Fondos/escenario\2\pixel\\(1\).png);
+  background-image: url(imagenes/Fondos/Pantalla\ Juego.png);
   background-size: cover;
 }
 
