@@ -10,11 +10,11 @@ main {
   position: absolute;
   top: 50vh;
   left: 50vw;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 #pantalla-inicio {
-  display: flex;
+  display: none;
   justify-content: flex-start;
   align-items: flex-end;
   background-image: url(/imagenes/Fondos/One\ piece\ logo.png);
@@ -23,37 +23,37 @@ main {
 }
 
 #texto-inicio {
-  font-family: '8BIT WONDER', sans-serif;
+  font-family: "8BIT WONDER", sans-serif;
   padding-left: 20px;
   padding-bottom: 20px;
 }
 
 #pantalla-juego {
   display: none;
-  background-image: url(imagenes/Fondos/escenario\ 2\ pixel\ \(1\).png);
+  background-image: url(imagenes/Fondos/escenario\2\pixel\\(1\).png);
   background-size: cover;
 }
 
-.container {  
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      ". . logo logo logo logo logo . ."
-      ". . barra-de-vida barra-de-vida . barra-de-vida-enemigo barra-de-vida-enemigo . ."
-      ". . . . . . . . ."
-      ". . . . . . . . ."
-      ". . personaje personaje . enemigo enemigo . ."
-      ". . personaje personaje . enemigo enemigo . ."
-      ". . . . . . . . ."
-      ". . . botones botones botones . . ."
-      ". . . . . . . . .";
-  }
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . logo logo logo logo logo . ."
+    ". . barra-de-vida barra-de-vida . barra-de-vida-enemigo barra-de-vida-enemigo . ."
+    ". . . . . . . . ."
+    ". . . . . . . . ."
+    ". . personaje personaje . enemigo enemigo . ."
+    ". . personaje personaje . enemigo enemigo . ."
+    ". . . . . . . . ."
+    ". . . botones botones botones . . ."
+    ". . . . . . . . .";
+}
 
 .texto-juego {
-  font-family: '8BIT WONDER', sans-serif;
+  font-family: "8BIT WONDER", sans-serif;
   grid-area: logo;
   align-self: self-end;
   justify-self: center;
@@ -79,16 +79,16 @@ main {
   grid-area: barra-de-vida;
   justify-self: center;
   align-self: self-end;
-  font-family: '8BIT WONDER', sans-serif;
+  font-family: "8BIT WONDER", sans-serif;
   color: white;
-  font-size:25px ;
+  font-size: 25px;
 }
 
 .barra-de-vida-2 {
   grid-area: barra-de-vida-enemigo;
   justify-self: center;
   align-self: self-end;
-  font-family: '8BIT WONDER', sans-serif;
+  font-family: "8BIT WONDER", sans-serif;
   color: white;
   font-size: 25px;
 }
@@ -101,7 +101,7 @@ main {
 
 #pantalla-game-over {
   display: none;
-  background-color: black;
+  background-image: url(imagenes/Fondos/Pantalla\ Game\ Over.png);
   background-size: cover;
 }
 
@@ -111,9 +111,9 @@ main {
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
-      ". game-over-texto ."
-      ". . ."
-      ". game-over-boton .";
+    ". game-over-texto ."
+    ". . ."
+    ". game-over-boton .";
 }
 
 .game-over-texto {
@@ -121,7 +121,6 @@ main {
   align-self: center;
   justify-self: center;
   width: 700px;
-  background-color: black;
   color: white;
 }
 
@@ -129,12 +128,13 @@ main {
   grid-area: game-over-boton;
   justify-self: center;
   align-self: center;
+  font-family: "8BIT WONDER", sans-serif;
   font-size: 32px;
 }
 
 #pantalla-victoria {
-  display: none;
-  background-image: url(/imagenes/Fondos/portada\ 3.png);
+  display: grid;
+  background-image: url(/imagenes/Fondos/Pantalla\ You\ Win.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -145,13 +145,16 @@ main {
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
-      ". . ."
-      ". . ."
-      ". win-boton .";
+    ". texto ."
+    ". . ."
+    ". win-boton .";
 }
 
 .texto-victoria {
-  font-family: '8BIT WONDER', sans-serif;
+  grid-area: texto;
+  text-align: center;
+  align-self: center;
+  font-family: "8BIT WONDER", sans-serif;
   font-size: 64px;
 }
 
@@ -159,11 +162,6 @@ main {
   grid-area: win-boton;
   justify-self: center;
   align-self: center;
+  font-family: "8BIT WONDER", sans-serif;
   font-size: 32px;
 }
-
-
-
-
-
-

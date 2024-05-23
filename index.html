@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>One Piece Fighting Game</title>
-    <link href="https://fonts.cdnfonts.com/css/8bit-wonder" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/8bit-wonder" rel="stylesheet" />
     <style>
-        @import url('https://fonts.cdnfonts.com/css/8bit-wonder');
-</style>    
-    <link rel="stylesheet" href="style.css">
+      @import url("https://fonts.cdnfonts.com/css/8bit-wonder");
+    </style>
+    <link rel="stylesheet" href="style.css" />
     <script src="turnos.js" defer></script>
     <script src="player.js" defer></script>
     <script src="enemy.js" defer></script>
     <script src="main.js" defer></script>
-</head>
-<body>
-<main id="pantalla-inicio">
-    <div id="texto-inicio">Presiona en algun lugar de la pantalla</div>
-</main>
-<main id="pantalla-juego">
-    <div class="container">
-        
-        <div class="texto-juego"><img id="logo" src="imagenes/logo.png" alt=""></div>
-        <div class="personaje"><img id="Luffy" src="imagenes/LuffyStanding.gif" alt=""></div>
-        <div class="enemigo"><img id="Zoro" src="imagenes/zoro stand.gif" alt=""></div>
+  </head>
+  <body>
+    <main id="pantalla-inicio">
+      <div id="texto-inicio">Presiona en algun lugar de la pantalla</div>
+    </main>
+    <main id="pantalla-juego">
+      <div class="container">
+        <div class="texto-juego">
+          <img id="logo" src="imagenes/logo.png" alt="" />
+        </div>
+        <div class="personaje">
+          <img id="Luffy" src="imagenes/LuffyStanding.gif" alt="" />
+        </div>
+        <div class="enemigo">
+          <img id="Zoro" src="imagenes/zoro stand.gif" alt="" />
+        </div>
         <div class="barra-de-vida"></div>
         <div class="barra-de-vida-2"></div>
         <div class="botones">
-            <button id="boton-atacar"><img src="imagenes/boton-ataque.png" alt=""></button>
-            <button id="boton-defender"><img src="imagenes/boton-defensa.png" alt=""></button>
-            <button id="boton-curar"><img src="imagenes/boton-cura.png" alt=""></button>
+          <button id="boton-atacar">
+            <img src="imagenes/boton-ataque.png" alt="" />
+          </button>
+          <button id="boton-defender">
+            <img src="imagenes/boton-defensa.png" alt="" />
+          </button>
+          <button id="boton-curar">
+            <img src="imagenes/boton-cura.png" alt="" />
+          </button>
         </div>
-        
-    </div>
-</main>
+      </div>
+    </main>
 
-<main class="container-game-over" id="pantalla-game-over">
-    <img class="game-over-texto" src="imagenes/Fondos/game over sin fondo.gif" alt="">
-    
-    <button class="game-over-boton">RestartGame</button>
-</main>
+    <main class="container-game-over" id="pantalla-game-over">
+      <img
+        class="game-over-texto"
+        src="imagenes/Fondos/game over sin fondo.gif"
+        alt=""
+      />
 
-<main class="container-victory" id="pantalla-victoria">
-<div class="texto-victoria">Has ganado</div>
-<button class="win-boton">RestartGame</button>
-</main>
-</body>
+      <button class="game-over-boton">RestartGame</button>
+    </main>
+
+    <main class="container-victory" id="pantalla-victoria">
+      <div class="texto-victoria">Has ganado</div>
+      <button class="win-boton">RestartGame</button>
+    </main>
+  </body>
 </html>
