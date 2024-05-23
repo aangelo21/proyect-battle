@@ -7,7 +7,7 @@ let barraDeVidaPlayer = document.getElementsByClassName("barra-de-vida")
 let luffy = document.getElementById("Luffy")
 let dañoRecibido;
 let contadorShield = -1;
-let critico;
+let damage;
 
 class Player {
     constructor() {
@@ -30,9 +30,15 @@ class Player {
         barraDeVidaPlayer[0].innerText = this.health + " hp / 100 hp"
     }
 
-    attack() {
-       return this.attack
+   attackMode() {
+    let probCritico = Math.random();
+    if (probCritico <= 0.05){
+        this.attack = 60
+    } else {
+        this.attack = 20
     }
+    return this.attack
+    } 
 
     defend() {
       defenceStatusPersonaje = true 
@@ -46,7 +52,6 @@ class Player {
         return this.health
     }
 }
-
 }
 
 function luffyAtaca(){

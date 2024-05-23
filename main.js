@@ -65,7 +65,7 @@ botonAtaque.addEventListener("click", () => {
         defenceStatusEnemigo = false;
         console.log("Rompes el escudo del enemigo");
     } else {
-        enemy.receiveDamage(player.attack);
+        enemy.receiveDamage(player.attackMode());
         console.log("Atacas al enemigo");
     }
     zoro.setAttribute("src", "imagenes/zoro stand.gif");
@@ -161,3 +161,4 @@ function comprobarDefensaPlayer() {
         luffyDefendingId = setTimeout(luffyDefending, 1200);
     }
 }
+
