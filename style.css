@@ -103,7 +103,7 @@ main {
   display: none;
   background-color: black;
   background-size: cover;
-  background-image: url(imagenes/Fondos/Lose.webp);
+  background-image: url(imagenes/Fondos/Pantalla\ Game\ Over.png);
 }
 
 .container-game-over {
@@ -135,7 +135,7 @@ main {
 
 #pantalla-victoria {
   display: none;
-  background-image: url(/imagenes/Fondos/portada\ 3.png);
+  background-image: url(/imagenes/Fondos/Pantalla\ You\ Win.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
