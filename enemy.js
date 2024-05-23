@@ -1,3 +1,12 @@
+let zoroAtacaId;
+let zoroStandingId;
+let zoroDefendingId;
+let zoroHealingId;
+let defenceStatusEnemigo = false
+let barraDeVidaEnemigo = document.getElementsByClassName("barra-de-vida-2")
+let zoro = document.getElementById("Zoro")
+let contadorShieldEnemy = -1;
+
 class Enemy {
     constructor() {
         this.width = 50;

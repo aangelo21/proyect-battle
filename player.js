@@ -1,3 +1,14 @@
+let luffyAtacaId;
+let luffyStandingId;
+let luffyDefendingId;
+let luffyHealingId;
+let defenceStatusPersonaje = false
+let barraDeVidaPlayer = document.getElementsByClassName("barra-de-vida")
+let luffy = document.getElementById("Luffy")
+let dañoRecibido;
+let contadorShield = -1;
+let critico;
+
 class Player {
     constructor() {
         this.width = 50;
