@@ -135,7 +135,7 @@ main {
 
 #pantalla-victoria {
   display: none;
-  background-image: url(/imagenes/Fondos/portada\ 3.png);
+  background-image: url(/imagenes/Fondos/win.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
