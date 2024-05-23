@@ -4,7 +4,7 @@ function turnoEnemigo() {
     deshabilitarDefensa();
     console.log("Acaba el turno " + contador);
     let enemigoTurno = Math.random();
-    if (enemigoTurno <= 0.99 && defenceStatusPersonaje === false) {
+    if (enemigoTurno <= 0.33 && defenceStatusPersonaje === false) {
         zoro.setAttribute("src", "imagenes/zoro.attack.gif");
         console.log("El enemigo te ataca");
         player.receiveDamage(enemy.attack);

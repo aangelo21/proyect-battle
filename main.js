@@ -96,7 +96,7 @@ botonCura.addEventListener("click", () => {
 });
 
 allButtons[0].addEventListener("click", function() {
-    allButtons[0].style.display = "none";
+    allButtons[0].style.visibility = "hidden";
     botonesId = setTimeout(habilitarBotones, 2700);
     comprobarDefensaPlayer();
     cambioPantalla();
@@ -126,7 +126,7 @@ function cambioPantalla() {
 // Funciones
 
 function habilitarBotones () {
-    allButtons[0].style.display = "block";
+    allButtons[0].style.visibility = "visible";
     clearTimeout(botonesId);
 }
 
