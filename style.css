@@ -1,6 +1,5 @@
 body {
-  background-image: url(imagenes/Fondos/playa.jpg);
-  
+  background-color: aquamarine;
   margin: 0;
   position: relative;
 }
@@ -18,7 +17,7 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  background-image: url(/imagenes/Fondos/portada\ 3.png);
+  background-image: url(/imagenes/Fondos/One\ piece\ logo.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
