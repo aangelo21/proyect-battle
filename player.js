@@ -37,3 +37,21 @@ class Player {
 }
 
 }
+
+function luffyAtaca(){
+    luffy.setAttribute("src", "imagenes/Luffyatacando.gif")
+    clearTimeout(luffyAtacaId)
+}
+function luffyStanding(){
+    luffy.setAttribute("src", "imagenes/LuffyStanding.gif")
+    clearTimeout(luffyStandingId)
+}
+function luffyDefending(){
+    luffy.setAttribute("src", "imagenes/Luffydefensa.gif")
+    clearTimeout(luffyDefendingId)
+}
+
+function luffyHealing (){
+    luffy.setAttribute("src", "imagenes/luffy heal.gif")
+    clearTimeout(luffyHealingId)
+}

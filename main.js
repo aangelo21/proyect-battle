@@ -41,11 +41,15 @@ let enemy = new Enemy()
 function startGame() {
     player.insertPlayer()
     enemy.insertEnemy()
+    turnoEnemigo()
 }
 
 function restartGame(){
     enemy.health = 100
     player.health = 100
+    contador = 0
+    contadorShield = -1;
+    contadorShieldEnemy = -1;
     defenceStatusEnemigo = false
     defenceStatusPersonaje = false
     barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp"
@@ -108,6 +112,9 @@ botonCura.addEventListener("click", () => {
     barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp"
     comprobarDefensaPlayer()
     cambioPantalla()
+    if (player.health === 100) {
+        
+    }
 })
 
 allButtons[0].addEventListener("click", function() {
@@ -116,6 +123,7 @@ allButtons[0].addEventListener("click", function() {
     comprobarDefensaPlayer()
     cambioPantalla()
     deshabilitar()
+    
 })
 
 //Barra de vida inicio
@@ -126,18 +134,19 @@ barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp"
 //Cambio de pantalla
 
 function cambioPantalla(){
-    if (player.health <= 0){
+    if (player.health <= 0 && enemy.health > 0){
         combate.style.display = "none"
         gameOver.style.display = "grid"
     } else if (enemy.health <= 0) {
         combate.style.display = "none"
         victoria.style.display = "grid"
-        
+    } else if (enemy.health <= 0 && player.health <= 0){
+        combate.style.display = "none"
+        victoria.style.display = "grid"
     }
 }
 
 //Acciones enemigo
-
 
 function turnoEnemigo (){
     cambioPantalla()
@@ -146,7 +155,7 @@ function turnoEnemigo (){
     console.log("Acaba el turno " + contador)
     allButtons[0].style.display = "block"
     let enemigoTurno = Math.random()
-    if (enemigoTurno <= 0.33 && defenceStatusPersonaje === false){
+    if (enemigoTurno <= 0.99 && defenceStatusPersonaje === false){
         zoro.setAttribute("src", "imagenes/zoro.attack.gif")
         console.log("El enemigo te ataca")
         player.receiveDamage(enemy.attack)
@@ -160,7 +169,7 @@ function turnoEnemigo (){
         
         cambioPantalla()
         luffyStandingId = setTimeout(luffyStanding, 1200)
-    } else if( contador >= contadorShieldEnemy && enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
+    } else if(defenceStatusEnemigo === false && contador >= contadorShieldEnemy && enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
         zoro.setAttribute("src", "imagenes/zoro defence.gif")
         console.log("El enemigo se está protegiendo")
         
@@ -169,7 +178,7 @@ function turnoEnemigo (){
         console.log(contadorShieldEnemy)
         console.log(contador >= contadorShieldEnemy)
         return enemy.defend()
-    } else {
+    } else if (enemy.health <= 90 && enemigoTurno > 0.66) {
         enemy.healing()
         zoro.setAttribute("src", "imagenes/zoro heal.gif")
         zoroStandingId = setTimeout (zoroStanding, 1200)
@@ -179,9 +188,20 @@ function turnoEnemigo (){
         cambioPantalla()
         return enemy.health
         
-    } 
-    
-    
+    } else if (defenceStatusPersonaje === true) {
+        zoro.setAttribute("src", "imagenes/zoro.attack.gif")
+        zoroDefendingId = setTimeout(zoroDefending, 1200)
+        console.log("El enemigo te rompe el escudo")
+        defenceStatusPersonaje = false
+
+    } else if (defenceStatusPersonaje === false){
+        zoro.setAttribute("src", "imagenes/zoro.attack.gif")
+        console.log("El enemigo te ataca")
+        player.receiveDamage(enemy.attack)
+        comprobarDefensaEnemigo()
+        deshabilitarCura()
+        cambioPantalla()
+    }
 }
 
 //Funciones
@@ -194,41 +214,14 @@ function deshabilitar(){
         botonDefensa.removeAttribute("disabled", "")
     }
 }
-   
-function luffyAtaca(){
-    luffy.setAttribute("src", "imagenes/Luffyatacando.gif")
-    clearTimeout(luffyAtacaId)
-}
-function luffyStanding(){
-    luffy.setAttribute("src", "imagenes/LuffyStanding.gif")
-    clearTimeout(luffyStandingId)
-}
-function luffyDefending(){
-    luffy.setAttribute("src", "imagenes/Luffydefensa.gif")
-    clearTimeout(luffyDefendingId)
-}
 
-function luffyHealing (){
-    luffy.setAttribute("src", "imagenes/luffy heal.gif")
-    clearTimeout(luffyHealingId)
-}
-
-function zoroAtaca(){
-    zoro.setAttribute("src", "imagenes/zoro.attack.gif")
-    clearTimeout(zoroAtacaId)
-}
-function zoroStanding(){
-    zoro.setAttribute("src", "imagenes/zoro stand.gif")
-    clearTimeout(zoroStandingId)
-}
-function zoroDefending(){
-    zoro.setAttribute("src", "imagenes/zoro defence.gif")
-    clearTimeout(zoroDefendingId)
-}
-
-function zoroHealing (){
-    zoro.setAttribute("src", "imagenes/zoro heal.gif")
-    clearTimeout(zoroHealingId)
+function deshabilitarCura(){
+    if(player.health === 100) {
+        botonCura.setAttribute("disabled", "")
+    }
+    else {
+        botonCura.removeAttribute("disabled", "")
+    }
 }
 
 function comprobarDefensaEnemigo(){

@@ -41,3 +41,21 @@ class Enemy {
 
 
 }
+
+function zoroAtaca(){
+    zoro.setAttribute("src", "imagenes/zoro.attack.gif")
+    clearTimeout(zoroAtacaId)
+}
+function zoroStanding(){
+    zoro.setAttribute("src", "imagenes/zoro stand.gif")
+    clearTimeout(zoroStandingId)
+}
+function zoroDefending(){
+    zoro.setAttribute("src", "imagenes/zoro defence.gif")
+    clearTimeout(zoroDefendingId)
+}
+
+function zoroHealing (){
+    zoro.setAttribute("src", "imagenes/zoro heal.gif")
+    clearTimeout(zoroHealingId)
+}
