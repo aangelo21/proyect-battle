@@ -7,6 +7,7 @@ let botonAtaque = document.getElementById("boton-atacar")
 let botonDefensa = document.getElementById("boton-defender")
 let botonCura = document.getElementById("boton-curar")
 let allButtons = document.getElementsByClassName("botones")
+let luffy = document.getElementById("Luffy")
 let timerId;
 let barraDeVidaPlayer = document.getElementsByClassName("barra-de-vida")
 let barraDeVidaEnemigo = document.getElementsByClassName("barra-de-vida-2")
@@ -17,6 +18,8 @@ let botonRestart = document.getElementsByClassName("game-over-boton")
 let contadorShield = -1;
 let contador = 0;
 let contadorShieldEnemy = -1;
+let luffyAtacaId;
+let luffyStandingId;
 
 // Personaje
 
@@ -54,6 +57,8 @@ botonRestart[0].addEventListener("click", () => {
 })
 
 botonAtaque.addEventListener("click", () => {
+    luffy.setAttribute("src", "imagenes/Luffy atacando.gif")
+    luffyStandingId = setTimeout(luffyStanding, 1200)
     if(defenceStatusEnemigo === true){
         defenceStatusEnemigo = false
         console.log("Rompes el escudo del enemigo")
@@ -61,20 +66,14 @@ botonAtaque.addEventListener("click", () => {
        enemy.receiveDamage(player.attack)
        console.log("Atacas al enemigo")
     }
-cambioPantalla() 
+    
+    cambioPantalla() 
+
 })
-function deshabilitar(){
-    if(contadorShield >= contador){
-    botonDefensa.setAttribute("disabled", "")
-    }
-    else {
-    botonDefensa.removeAttribute("disabled", "")
-    }
-}
 
 botonDefensa.addEventListener("click", () =>{
     //if(defenceStatusPersonaje === true || contadorShield >= contador)
-    player.defend()
+        player.defend()
     console.log("Te proteges")
     cambioPantalla()
     contadorShield = contador + 3
@@ -107,14 +106,14 @@ function cambioPantalla(){
     } else if (enemy.health <= 0) {
         combate.style.display = "none"
         victoria.style.display = "grid"
-
+        
     }
 }
 
 //Acciones enemigo
- 
- 
-    function turnoEnemigo (){
+
+
+function turnoEnemigo (){
     cambioPantalla()
     contador ++
     deshabilitar()
@@ -122,9 +121,9 @@ function cambioPantalla(){
     allButtons[0].style.display = "block"
     let enemigoTurno = Math.random()
     if (enemigoTurno <= 0.33 && defenceStatusPersonaje === false){
-     console.log("El enemigo te ataca")
-     player.receiveDamage(enemy.attack)
-     cambioPantalla()
+        console.log("El enemigo te ataca")
+        player.receiveDamage(enemy.attack)
+        cambioPantalla()
     } else if ( enemigoTurno <= 0.33 && defenceStatusPersonaje === true) {
         console.log("El enemigo te rompe el escudo")
         defenceStatusPersonaje = false
@@ -138,14 +137,30 @@ function cambioPantalla(){
         return enemy.defend()
     } else {
         enemy.healing()
-            console.log("El enemigo se está curando")
-            barraDeVidaEnemigo[0].innerText = enemy.health
-            cambioPantalla()
-            return enemy.health
+        console.log("El enemigo se está curando")
+        barraDeVidaEnemigo[0].innerText = enemy.health
+        cambioPantalla()
+        return enemy.health
         
     } 
     
 }
-    
-   
+
+//Funciones
+
+function luffyAtaca(){
+    luffy.setAttribute("src", "imagenes/Luffy atacando.gif")
+}
+function luffyStanding(){
+    luffy.setAttribute("src", "imagenes/LuffyStanding.gif")
+    clearTimeout(luffyStandingId)
+}
+function deshabilitar(){
+    if(contadorShield >= contador){
+    botonDefensa.setAttribute("disabled", "")
+    }
+    else {
+    botonDefensa.removeAttribute("disabled", "")
+    }
+}
    
