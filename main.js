@@ -8,6 +8,7 @@ let botonDefensa = document.getElementById("boton-defender")
 let botonCura = document.getElementById("boton-curar")
 let allButtons = document.getElementsByClassName("botones")
 let luffy = document.getElementById("Luffy")
+let zoro = document.getElementById("Zoro")
 let timerId;
 let barraDeVidaPlayer = document.getElementsByClassName("barra-de-vida")
 let barraDeVidaEnemigo = document.getElementsByClassName("barra-de-vida-2")
@@ -20,6 +21,10 @@ let contador = 0;
 let contadorShieldEnemy = -1;
 let luffyAtacaId;
 let luffyStandingId;
+let luffyDefendingId;
+let zoroAtacaId;
+let zoroStandingId;
+let zoroDefendingId;
 
 // Personaje
 
@@ -58,7 +63,11 @@ botonRestart[0].addEventListener("click", () => {
 
 botonAtaque.addEventListener("click", () => {
     luffy.setAttribute("src", "imagenes/Luffy atacando.gif")
-    luffyStandingId = setTimeout(luffyStanding, 1200)
+    if(defenceStatusPersonaje === false){
+        luffyStandingId = setTimeout(luffyStanding, 1200)
+    } else {
+        luffyDefendingId = setTimeout(luffyDefending,1200)
+    }
     if(defenceStatusEnemigo === true){
         defenceStatusEnemigo = false
         console.log("Rompes el escudo del enemigo")
@@ -66,14 +75,14 @@ botonAtaque.addEventListener("click", () => {
        enemy.receiveDamage(player.attack)
        console.log("Atacas al enemigo")
     }
-    
+    zoro.setAttribute("src", "imagenes/zoro stand.gif")
     cambioPantalla() 
 
 })
 
 botonDefensa.addEventListener("click", () =>{
-    //if(defenceStatusPersonaje === true || contadorShield >= contador)
-        player.defend()
+    luffy.setAttribute("src", "imagenes/Luffy defensa.gif")
+    player.defend()
     console.log("Te proteges")
     cambioPantalla()
     contadorShield = contador + 3
@@ -121,6 +130,12 @@ function turnoEnemigo (){
     allButtons[0].style.display = "block"
     let enemigoTurno = Math.random()
     if (enemigoTurno <= 0.33 && defenceStatusPersonaje === false){
+        zoro.setAttribute("src", "imagenes/zoro.attack.gif")
+            if(defenceStatusEnemigo === false){
+                zoroStandingId = setTimeout(zoroStanding, 1200)
+            } else {
+                zoroDefendingId = setTimeout(zoroDefending, 1200)
+            }
         console.log("El enemigo te ataca")
         player.receiveDamage(enemy.attack)
         cambioPantalla()
@@ -128,7 +143,9 @@ function turnoEnemigo (){
         console.log("El enemigo te rompe el escudo")
         defenceStatusPersonaje = false
         cambioPantalla()
+        luffyStandingId = setTimeout(luffyStanding, 1200)
     } else if( contador >= contadorShieldEnemy && enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
+        zoro.setAttribute("src", "imagenes/zoro defence.gif")
         console.log("El enemigo se está protegiendo")
         cambioPantalla()
         contadorShieldEnemy = contador + 3
@@ -148,13 +165,6 @@ function turnoEnemigo (){
 
 //Funciones
 
-function luffyAtaca(){
-    luffy.setAttribute("src", "imagenes/Luffy atacando.gif")
-}
-function luffyStanding(){
-    luffy.setAttribute("src", "imagenes/LuffyStanding.gif")
-    clearTimeout(luffyStandingId)
-}
 function deshabilitar(){
     if(contadorShield >= contador){
     botonDefensa.setAttribute("disabled", "")
@@ -164,3 +174,29 @@ function deshabilitar(){
     }
 }
    
+function luffyAtaca(){
+    luffy.setAttribute("src", "imagenes/Luffy atacando.gif")
+    clearTimeout(luffyAtacaId)
+}
+function luffyStanding(){
+    luffy.setAttribute("src", "imagenes/LuffyStanding.gif")
+    clearTimeout(luffyStandingId)
+}
+function luffyDefending(){
+    luffy.setAttribute("src", "imagenes/Luffy defensa.gif")
+    clearTimeout(luffyDefendingId)
+}
+
+function zoroAtaca(){
+    zoro.setAttribute("src", "imagenes/zoro.attack.gif")
+    clearTimeout(zoroAtacaId)
+}
+function zoroStanding(){
+    zoro.setAttribute("src", "imagenes/zoro stand.gif")
+    clearTimeout(zoroStandingId)
+}
+function zoroDefending(){
+    zoro.setAttribute("src", "imagenes/zoro defence.gif")
+    clearTimeout(zoroDefendingId)
+}
+

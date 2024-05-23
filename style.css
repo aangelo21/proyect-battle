@@ -39,11 +39,11 @@ main {
     grid-area: Personaje;
     justify-self: center;
     align-self: center;
+    scale: 2, 2;
 }
   
   .Enemigo { 
     grid-area: Enemigo; 
-    background-color: red;
     color: white;
     justify-self: center;
     align-self: center;
