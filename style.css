@@ -14,10 +14,10 @@ main {
 }
 
 #pantalla-inicio {
-  display: none;
+  display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  background-image: url(/imagenes/Fondos/One\ piece\ logo.png);
+  background-image: url(/imagenes/Fondos/Pantalla\ Inicio.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
