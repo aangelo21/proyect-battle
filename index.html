@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Piece Fighting Game</title>
+    <link href="https://fonts.cdnfonts.com/css/8bit-wonder" rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/8bit-wonder');
+</style>
+        
     <link rel="stylesheet" href="style.css">
     <script src="enemy.js" defer></script>
     <script src="player.js" defer></script>
@@ -11,10 +16,11 @@
 </head>
 <body>
 <main id="pantalla-inicio">
-    <button id="inicio"> Inicio </button>
+    <div id="texto-inicio">Presiona donde quieras para empezar</div>
 </main>
 <main id="pantalla-juego">
     <div class="container">
+        <div id="texto-juego">A One Piece Fighting Game</div>
         <div class="Personaje"><img id="Luffy" src="imagenes/LuffyStanding.gif" alt=""></div>
         <div class="Enemigo"><img id="Zoro" src="imagenes/zoro stand.gif" alt=""></div>
         <div class="barra-de-vida"></div>

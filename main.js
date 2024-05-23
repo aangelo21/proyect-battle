@@ -140,6 +140,8 @@ function turnoEnemigo (){
         player.receiveDamage(enemy.attack)
         cambioPantalla()
     } else if ( enemigoTurno <= 0.33 && defenceStatusPersonaje === true) {
+        zoro.setAttribute("src", "imagenes/zoro.attack.gif")
+        zoroDefendingId = setTimeout(zoroDefending, 1200)
         console.log("El enemigo te rompe el escudo")
         defenceStatusPersonaje = false
         cambioPantalla()
