@@ -35,6 +35,16 @@ main {
     ". game-over-boton ."; 
 }
 
+.container-victory{
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . ."
+    ". . ."
+    ". win-boton ."; 
+}
   .Personaje { 
     grid-area: Personaje;
     justify-self: center;
@@ -84,6 +94,13 @@ main {
   border-style: inset; 
 }
 
+
+#texto-inicio {
+  font-family: '8BIT WONDER', sans-serif;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
 #pantalla-inicio {
   display: flex;
   justify-content: flex-start;
@@ -92,12 +109,6 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   
-}
-  
-#texto-inicio {
-  font-family: '8BIT WONDER', sans-serif;
-  padding-left: 20px;
-  padding-bottom: 20px;
 }
 
 #pantalla-juego{
@@ -108,12 +119,15 @@ main {
 
 #pantalla-victoria {
   display: none;
+  background-image: url(/imagenes/Fondos/portada\ 3.png);
+  background-repeat: no-repeat;
   background-size: cover;
+  
 }
 
 #pantalla-game-over {
   display: none;
-  background-image: url(imagenes/lose.jpg);
+  background-color: black;
   background-size: cover;
 }
 
@@ -121,13 +135,20 @@ main {
   grid-area: game-over-texto;
   align-self: center;
   justify-self: center;
-  font-size: 64px;
+  width: 700px;
+  
   background-color: black;
   color: white;
 }
 
 .game-over-boton {
   grid-area: game-over-boton;
+  justify-self: center;
+  align-self: center;
+  font-size: 32px;
+}
+.win-boton {
+  grid-area: win-boton;
   justify-self: center;
   align-self: center;
   font-size: 32px;
@@ -139,4 +160,9 @@ main {
   align-self: self-end;
   justify-self: center;
   font-size: 25px;
+}
+
+.texto-victoria {
+  font-family: '8BIT WONDER', sans-serif;
+  font-size: 64px;
 }

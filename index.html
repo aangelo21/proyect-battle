@@ -16,7 +16,7 @@
 </head>
 <body>
 <main id="pantalla-inicio">
-    <div id="texto-inicio">Presiona donde quieras para empezar</div>
+    <div id="texto-inicio">Presiona en algun lugar de la pantalla</div>
 </main>
 <main id="pantalla-juego">
     <div class="container">
@@ -35,10 +35,14 @@
 </main>
 
 <main class="container-game-over" id="pantalla-game-over">
-    <div class="game-over-texto"><b>GAME OVER</b></div>
+    <img class="game-over-texto" src="imagenes/Fondos/game over sin fondo.gif" alt="">
+    
     <button class="game-over-boton">RestartGame</button>
 </main>
 
-<main id="pantalla-victoria"><img src="imagenes/win screen.gif" alt=""></main>
+<main class="container-victory" id="pantalla-victoria">
+<div class="texto-victoria">Has ganado</div>
+<button class="win-boton">RestartGame</button>
+</main>
 </body>
 </html>

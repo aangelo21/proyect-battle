@@ -16,15 +16,20 @@ let defenceStatusPersonaje = false
 let defenceStatusEnemigo = false
 let dañoRecibido;
 let botonRestart = document.getElementsByClassName("game-over-boton")
+let botonWin = document.getElementsByClassName("win-boton")
 let contadorShield = -1;
 let contador = 0;
 let contadorShieldEnemy = -1;
+
 let luffyAtacaId;
 let luffyStandingId;
 let luffyDefendingId;
+let luffyHealingId
+
 let zoroAtacaId;
 let zoroStandingId;
 let zoroDefendingId;
+let zoroHealingId;
 
 // Personaje
 
@@ -43,8 +48,8 @@ function restartGame(){
     player.health = 100
     defenceStatusEnemigo = false
     defenceStatusPersonaje = false
-    barraDeVidaPlayer[0].innerText = player.health
-    barraDeVidaEnemigo[0].innerText = enemy.health
+    barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp"
+    barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp"
 }
 //Botones
 
@@ -61,8 +66,14 @@ botonRestart[0].addEventListener("click", () => {
     restartGame()
 })
 
+botonWin[0].addEventListener("click", () => {
+    victoria.style.display = "none"
+    inicio.style.display = "flex"
+    restartGame()
+})
+
 botonAtaque.addEventListener("click", () => {
-    luffy.setAttribute("src", "imagenes/Luffy atacando.gif")
+    luffy.setAttribute("src", "imagenes/Luffyatacando.gif")
     if(defenceStatusPersonaje === false){
         luffyStandingId = setTimeout(luffyStanding, 1200)
     } else {
@@ -76,35 +87,41 @@ botonAtaque.addEventListener("click", () => {
        console.log("Atacas al enemigo")
     }
     zoro.setAttribute("src", "imagenes/zoro stand.gif")
+    comprobarDefensaPlayer()
     cambioPantalla() 
 
 })
 
 botonDefensa.addEventListener("click", () =>{
-    luffy.setAttribute("src", "imagenes/Luffy defensa.gif")
+    luffy.setAttribute("src", "imagenes/Luffydefensa.gif")
     player.defend()
     console.log("Te proteges")
+    comprobarDefensaPlayer()
     cambioPantalla()
     contadorShield = contador + 3
     console.log(contadorShield)
 })
 botonCura.addEventListener("click", () => {
+    luffy.setAttribute("src", "imagenes/luffy heal.gif")
     player.healing()  
     console.log("Te curas")
+    barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp"
+    comprobarDefensaPlayer()
     cambioPantalla()
 })
 
 allButtons[0].addEventListener("click", function() {
     allButtons[0].style.display = "none"
     timerId = setTimeout(turnoEnemigo, 1000)
+    comprobarDefensaPlayer()
     cambioPantalla()
     deshabilitar()
 })
 
 //Barra de vida inicio
 
-barraDeVidaPlayer[0].innerText = player.health
-barraDeVidaEnemigo[0].innerText = enemy.health
+barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp"
+barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp"
 
 //Cambio de pantalla
 
@@ -131,24 +148,22 @@ function turnoEnemigo (){
     let enemigoTurno = Math.random()
     if (enemigoTurno <= 0.33 && defenceStatusPersonaje === false){
         zoro.setAttribute("src", "imagenes/zoro.attack.gif")
-            if(defenceStatusEnemigo === false){
-                zoroStandingId = setTimeout(zoroStanding, 1200)
-            } else {
-                zoroDefendingId = setTimeout(zoroDefending, 1200)
-            }
         console.log("El enemigo te ataca")
         player.receiveDamage(enemy.attack)
+        comprobarDefensaEnemigo()
         cambioPantalla()
     } else if ( enemigoTurno <= 0.33 && defenceStatusPersonaje === true) {
         zoro.setAttribute("src", "imagenes/zoro.attack.gif")
         zoroDefendingId = setTimeout(zoroDefending, 1200)
         console.log("El enemigo te rompe el escudo")
         defenceStatusPersonaje = false
+        
         cambioPantalla()
         luffyStandingId = setTimeout(luffyStanding, 1200)
     } else if( contador >= contadorShieldEnemy && enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
         zoro.setAttribute("src", "imagenes/zoro defence.gif")
         console.log("El enemigo se está protegiendo")
+        
         cambioPantalla()
         contadorShieldEnemy = contador + 3
         console.log(contadorShieldEnemy)
@@ -156,12 +171,16 @@ function turnoEnemigo (){
         return enemy.defend()
     } else {
         enemy.healing()
+        zoro.setAttribute("src", "imagenes/zoro heal.gif")
+        zoroStandingId = setTimeout (zoroStanding, 1200)
         console.log("El enemigo se está curando")
-        barraDeVidaEnemigo[0].innerText = enemy.health
+        barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp"
+        comprobarDefensaEnemigo()
         cambioPantalla()
         return enemy.health
         
     } 
+    
     
 }
 
@@ -169,15 +188,15 @@ function turnoEnemigo (){
 
 function deshabilitar(){
     if(contadorShield >= contador){
-    botonDefensa.setAttribute("disabled", "")
+        botonDefensa.setAttribute("disabled", "")
     }
     else {
-    botonDefensa.removeAttribute("disabled", "")
+        botonDefensa.removeAttribute("disabled", "")
     }
 }
    
 function luffyAtaca(){
-    luffy.setAttribute("src", "imagenes/Luffy atacando.gif")
+    luffy.setAttribute("src", "imagenes/Luffyatacando.gif")
     clearTimeout(luffyAtacaId)
 }
 function luffyStanding(){
@@ -185,8 +204,13 @@ function luffyStanding(){
     clearTimeout(luffyStandingId)
 }
 function luffyDefending(){
-    luffy.setAttribute("src", "imagenes/Luffy defensa.gif")
+    luffy.setAttribute("src", "imagenes/Luffydefensa.gif")
     clearTimeout(luffyDefendingId)
+}
+
+function luffyHealing (){
+    luffy.setAttribute("src", "imagenes/luffy heal.gif")
+    clearTimeout(luffyHealingId)
 }
 
 function zoroAtaca(){
@@ -202,3 +226,24 @@ function zoroDefending(){
     clearTimeout(zoroDefendingId)
 }
 
+function zoroHealing (){
+    zoro.setAttribute("src", "imagenes/zoro heal.gif")
+    clearTimeout(zoroHealingId)
+}
+
+function comprobarDefensaEnemigo(){
+    
+    if(defenceStatusEnemigo === false){
+        zoroStandingId = setTimeout(zoroStanding, 1200)
+    } else {
+        zoroDefendingId = setTimeout(zoroDefending, 1200)
+    }
+}
+
+function comprobarDefensaPlayer(){
+    if(defenceStatusPersonaje === false){
+        luffyStandingId = setTimeout(luffyStanding, 1200)
+    } else {
+        luffyDefendingId = setTimeout(luffyDefending, 1200)
+    }
+}

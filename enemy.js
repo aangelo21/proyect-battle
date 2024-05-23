@@ -16,7 +16,7 @@ class Enemy {
 
     receiveDamage(damage) {
         this.health -= damage
-        barraDeVidaEnemigo[0].innerText = this.health
+        barraDeVidaEnemigo[0].innerText = this.health + " hp / 100 hp"
     }
 
     attack() {
@@ -33,7 +33,7 @@ class Enemy {
         this.health += this.heal
         if (this.health >= 100) {
             this.health = 100
-            barraDeVidaEnemigo[0].innerText = this.health
+            barraDeVidaEnemigo[0].innerText = this.health + " hp / 100 hp"
         return this.health
     }
     return this.health
