@@ -18,7 +18,7 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  background-image: url(/imagenes/Fondos/portada\ 3.png);
+  background-image: url(/imagenes/Fondos/portada.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -102,8 +102,9 @@ main {
 
 #pantalla-game-over {
   display: none;
-  background-color: black;
+  
   background-size: cover;
+  background-image: url(imagenes/Fondos/Lose.webp);
 }
 
 .container-game-over {
@@ -122,7 +123,6 @@ main {
   align-self: center;
   justify-self: center;
   width: 700px;
-  background-color: black;
   color: white;
 }
 
