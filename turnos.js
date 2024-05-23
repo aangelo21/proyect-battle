@@ -4,7 +4,7 @@ function turnoEnemigo() {
     deshabilitarDefensa();
     console.log("Acaba el turno " + contador);
     let enemigoTurno = Math.random();
-    if (enemigoTurno <= 0.33 && defenceStatusPersonaje === false) {
+    if (enemigoTurno <= 0.99 && defenceStatusPersonaje === false) {
         zoro.setAttribute("src", "imagenes/zoro.attack.gif");
         console.log("El enemigo te ataca");
         player.receiveDamage(enemy.attack);
@@ -15,8 +15,8 @@ function turnoEnemigo() {
         zoroDefendingId = setTimeout(zoroDefending, 1200);
         console.log("El enemigo te rompe el escudo");
         defenceStatusPersonaje = false;
-        cambioPantalla();
         luffyStandingId = setTimeout(luffyStanding, 1200);
+        cambioPantalla();
     } else if (defenceStatusEnemigo === false && contador >= contadorShieldEnemy && enemigoTurno > 0.33 && enemigoTurno <= 0.66) {
         zoro.setAttribute("src", "imagenes/zoro defence.gif");
         console.log("El enemigo se está protegiendo");
@@ -37,6 +37,7 @@ function turnoEnemigo() {
     } else if (defenceStatusPersonaje === true) {
         zoro.setAttribute("src", "imagenes/zoro.attack.gif");
         zoroDefendingId = setTimeout(zoroDefending, 1200);
+        luffyStandingId = setTimeout(luffyStanding, 1200);
         console.log("El enemigo te rompe el escudo");
         defenceStatusPersonaje = false;
     } else if (defenceStatusPersonaje === false) {
