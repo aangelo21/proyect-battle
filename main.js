@@ -9,9 +9,16 @@ let botonCura = document.getElementById("boton-curar");
 let allButtons = document.getElementsByClassName("botones");
 let botonRestart = document.getElementsByClassName("game-over-boton");
 let botonWin = document.getElementsByClassName("win-boton");
+let audioInicio = document.getElementById("audio-inicio")
+let audioJuego = document.getElementById("audio-juego")
+let audioDerrota = document.getElementById("audio-derrota")
+let audioVictoria = document.getElementById("audio-victoria")
 let contador = 0;
 let timerId;
 let botonesId;
+
+
+audioInicio.play()
 
 // Personaje
 let player = new Player();
@@ -24,6 +31,9 @@ function startGame() {
 }
 
 function restartGame() {
+  audioDerrota.pause()
+  audioVictoria.pause()
+  audioInicio.play()
   enemy.health = 100;
   player.health = 100;
   contador = 0;
@@ -39,6 +49,8 @@ function restartGame() {
 inicio.addEventListener("click", () => {
   combate.style.display = "grid";
   inicio.style.display = "none";
+  audioInicio.pause()
+  audioJuego.play()
   startGame();
 });
 
@@ -114,12 +126,18 @@ function cambioPantalla() {
   if (player.health <= 0 && enemy.health > 0) {
     combate.style.display = "none";
     gameOver.style.display = "grid";
+    audioJuego.pause()
+    audioDerrota.play()
   } else if (enemy.health <= 0) {
     combate.style.display = "none";
     victoria.style.display = "grid";
+    audioJuego.pause()
+    audioVictoria.play()
   } else if (enemy.health <= 0 && player.health <= 0) {
     combate.style.display = "none";
     victoria.style.display = "grid";
+    audioJuego.pause()
+    audioVictoria.play()
   }
 }
 

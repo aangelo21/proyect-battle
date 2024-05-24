@@ -16,11 +16,11 @@
   </head>
   <body>
     <main id="pantalla-inicio">
-      <audio src="canciones/Pantalla Inicio.mp3" autoplay></audio>
+      <audio id="audio-inicio" src="canciones/Pantalla Inicio.mp3" ></audio>
       <div id="texto-inicio">Presiona en algun lugar de la pantalla</div>
     </main>
     <main id="pantalla-juego">
-      <audio src="canciones/Pantalla Juego.mp3" autoplay></audio>
+      <audio id="audio-juego" src="canciones/Pantalla Juego.mp3"></audio>
       <div class="container">
         <div class="texto-juego">
           <img id="logo" src="imagenes/logo.png" alt="" />
@@ -48,7 +48,7 @@
     </main>
 
     <main class="container-game-over" id="pantalla-game-over">
-      <audio src="canciones/Pantalla Game Over.mp3" autoplay></audio>
+      <audio id="audio-derrota" src="canciones/Pantalla Game Over.mp3"></audio>
       <img
         class="game-over-texto"
         src="imagenes/Fondos/game over sin fondo.gif"
@@ -59,7 +59,7 @@
     </main>
 
     <main class="container-victory" id="pantalla-victoria">
-      <audio src="canciones/Pantalla You Win.mp3" autoplay></audio>
+      <audio id="audio-victoria" src="canciones/Pantalla You Win.mp3"></audio>
       <div class="texto-victoria">Has ganado</div>
       <button class="win-boton">RestartGame</button>
     </main>
