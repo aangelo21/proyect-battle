@@ -37,7 +37,6 @@ main {
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -45,10 +44,8 @@ main {
     ". . barra-de-vida barra-de-vida . barra-de-vida-enemigo barra-de-vida-enemigo . ."
     ". . . . . . . . ."
     ". . . . . . . . ."
-    ". . personaje personaje . enemigo enemigo . ."
-    ". . personaje personaje . enemigo enemigo . ."
-    ". . . . . . . . ."
-    ". . . botones botones botones . . ."
+    "botones . personaje personaje . enemigo enemigo . ."
+    "botones . personaje personaje . enemigo enemigo . ."
     ". . . . . . . . .";
 }
 
@@ -69,7 +66,6 @@ main {
 
 .enemigo {
   grid-area: enemigo;
-  color: white;
   justify-self: center;
   align-self: center;
   scale: 1.75;
@@ -80,7 +76,7 @@ main {
   justify-self: center;
   align-self: self-end;
   font-family: "8BIT WONDER", sans-serif;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 25px;
 }
 
@@ -89,7 +85,7 @@ main {
   justify-self: center;
   align-self: self-end;
   font-family: "8BIT WONDER", sans-serif;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 25px;
 }
 
