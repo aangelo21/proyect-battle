@@ -17,7 +17,7 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
-  background-image: url(/imagenes/Fondos/Pantalla\ Inicio.png);
+  background-image: url(/imagenes/Fondos/Pantalla\ Inicio2.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -99,7 +99,7 @@ main {
   display: none;
   background-color: black;
   background-size: cover;
-  background-image: url(imagenes/Fondos/Pantalla\ Game\ Over.png);
+  background-image: url(imagenes/Fondos/Pantalla\ Game\ Over2.png);
 }
 
 .container-game-over {
