@@ -45,7 +45,7 @@ class Player {
     let probCritico = Math.random();
     if (probCritico <= 0.95) {
       this.attack = 60;
-      zoro.setAttribute("src", "imagenes/zoro.attack.gif");
+      console.log("TOMA CRITICO");
     } else {
       this.attack = 20;
     }

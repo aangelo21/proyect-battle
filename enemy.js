@@ -2,6 +2,7 @@ let zoroAtacaId;
 let zoroStandingId;
 let zoroDefendingId;
 let zoroHealingId;
+let zoroLoseId;
 let defenceStatusEnemigo = false;
 let barraDeVidaEnemigo = document.getElementsByClassName("barra-de-vida-2");
 let zoro = document.getElementById("Zoro");
@@ -74,4 +75,11 @@ function zoroDefending() {
 function zoroHealing() {
   zoro.setAttribute("src", "imagenes/zoro heal.gif");
   clearTimeout(zoroHealingId);
+}
+
+function zoroLose (){
+  console.log("auch")
+  clearTimeout(zoroStandingId)
+  zoro.setAttribute("src", "imagenes/zoro_lose.gif");
+  clearTimeout(zoroLoseId);
 }
