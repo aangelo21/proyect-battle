@@ -5,6 +5,7 @@ let gameOver = document.getElementById("pantalla-game-over");
 let victoria = document.getElementById("pantalla-victoria");
 let botonAtaque = document.getElementById("boton-atacar");
 let botonDefensa = document.getElementById("boton-defender");
+let botonDefensa2 = document.getElementById("boton-defensa");
 let botonCura = document.getElementById("boton-curar");
 let allButtons = document.getElementsByClassName("botones");
 let botonRestart = document.getElementsByClassName("game-over-boton");
@@ -42,8 +43,8 @@ function restartGame() {
   contadorShieldEnemy = -1;
   defenceStatusEnemigo = false;
   defenceStatusPersonaje = false;
-  barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp";
-  barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp";
+  /* barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp";
+  barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp"; */
 }
 
 // Botones
@@ -100,7 +101,7 @@ botonCura.addEventListener("click", () => {
   luffy.setAttribute("src", "imagenes/luffy heal.gif");
   player.healing();
   console.log("Te curas");
-  barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp";
+  /* barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp"; */
   comprobarDefensaPlayer();
   cambioPantallaId = setTimeout(cambioPantalla, 2400)
   if (player.health === 100) {
@@ -119,8 +120,8 @@ allButtons[0].addEventListener("click", function () {
 });
 
 // Barra de vida inicio
-barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp";
-barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp";
+/* barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp";
+barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp"; */
 
 // Cambio de pantalla
 function cambioPantalla() {
@@ -152,19 +153,15 @@ function habilitarBotones() {
 
 function deshabilitarDefensa() {
   if (contadorShield >= contador) {
-    botonDefensa.setAttribute("disabled", "");
+    botonDefensa2.setAttribute("src", "imagenes/boton-defensa-deshab.png");
+    botonDefensa.setAttribute("disabled", "")
+    
   } else {
-    botonDefensa.removeAttribute("disabled", "");
+    botonDefensa2.setAttribute("src", "imagenes/boton-defensa.png");
+    botonDefensa.removeAttribute("disabled", "")
   }
 }
 
-/* function deshabilitarCura() {
-    if (player.health === 100) {
-        botonCura.setAttribute("disabled", "");
-    } else {
-        botonCura.removeAttribute("disabled", "");
-    }
-} */
 
 function comprobarDefensaEnemigo() {
   if (defenceStatusEnemigo === false) {

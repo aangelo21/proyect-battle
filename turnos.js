@@ -35,7 +35,7 @@ function turnoEnemigo() {
     zoro.setAttribute("src", "imagenes/zoro heal.gif");
     zoroStandingId = setTimeout(zoroStanding, 1200);
     console.log("El enemigo se está curando");
-    barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp";
+    /* barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp"; */
     comprobarDefensaEnemigo();
     cambioPantallaId = setTimeout(cambioPantalla, 2400)
     return enemy.health;

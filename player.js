@@ -27,7 +27,7 @@ class Player {
 
   receiveDamage() {
     this.health -= enemy.attack;
-    barraDeVidaPlayer[0].innerText = this.health + " hp / 100 hp";
+    /* barraDeVidaPlayer[0].innerText = this.health + " hp / 100 hp"; */
   }
 
   attackMode() {
@@ -48,7 +48,7 @@ class Player {
     this.health += this.heal;
     if (this.health >= 100) {
       this.health = 100;
-      barraDeVidaPlayer[0].innerText = this.health + " hp / 100 hp";
+      /* barraDeVidaPlayer[0].innerText = this.health + " hp / 100 hp"; */
       return this.health;
     }
   }
