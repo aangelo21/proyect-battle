@@ -1,5 +1,5 @@
 function turnoEnemigo() {
-  cambioPantallaId = setTimeout(cambioPantalla, 2400);
+  /* cambioPantallaId = setTimeout(cambioPantalla, 2400); */
   contador++;
   deshabilitarDefensa();
   console.log("Acaba el turno " + contador);
@@ -26,7 +26,7 @@ function turnoEnemigo() {
   ) {
     zoro.setAttribute("src", "imagenes/zoro defence.gif");
     console.log("El enemigo se está protegiendo");
-    cambioPantallaId = setTimeout(cambioPantalla, 2400);
+    /* cambioPantallaId = setTimeout(cambioPantalla, 2400); */
     contadorShieldEnemy = contador + 3;
     console.log(contadorShieldEnemy);
     console.log(contador >= contadorShieldEnemy);
@@ -39,7 +39,7 @@ function turnoEnemigo() {
 
     zoroVida();
     comprobarDefensaEnemigo();
-    cambioPantallaId = setTimeout(cambioPantalla, 2400);
+    /* cambioPantallaId = setTimeout(cambioPantalla, 2400); */
     return enemy.health;
   } else if (defenceStatusPersonaje === true && defenceStatusEnemigo === true && enemy.health > 0) {
     zoro.setAttribute("src", "imagenes/zoro.attack.gif");
@@ -63,8 +63,9 @@ function turnoEnemigo() {
     console.log("El enemigo te ataca");
     player.receiveDamage(enemy.attack);
     comprobarDefensaEnemigo();
-    cambioPantallaId = setTimeout(cambioPantalla, 2400);
+    /* cambioPantallaId = setTimeout(cambioPantalla, 2400); */
   } else if (enemy.health <=0){
     zoro.setAttribute("src", "imagenes/zoro_lose.gif");
-  }
+    cambioPantallaId = setTimeout(cambioPantalla, 2400);
+}
 }

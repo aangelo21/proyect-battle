@@ -2,6 +2,7 @@ let luffyAtacaId;
 let luffyStandingId;
 let luffyDefendingId;
 let luffyHealingId;
+let luffyLoseId;
 let defenceStatusPersonaje = false;
 let barraDeVidaPlayer = document.getElementsByClassName("barra-de-vida");
 let luffy = document.getElementById("Luffy");
@@ -43,7 +44,7 @@ class Player {
 
   attackMode() {
     let probCritico = Math.random();
-    if (probCritico <= 0.95) {
+    if (probCritico <= 0.05) {
       this.attack = 60;
       console.log("TOMA CRITICO");
     } else {
@@ -83,4 +84,10 @@ function luffyDefending() {
 function luffyHealing() {
   luffy.setAttribute("src", "imagenes/luffy heal.gif");
   clearTimeout(luffyHealingId);
+}
+
+function luffyLose(){
+  clearTimeout(luffyStandingId)
+  luffy.setAttribute("src", "imagenes/luffy lose.gif")
+  clearTimeout(luffyLoseId)
 }

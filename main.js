@@ -44,6 +44,8 @@ function restartGame() {
   contadorShieldEnemy = -1;
   defenceStatusEnemigo = false;
   defenceStatusPersonaje = false;
+  luffy.setAttribute("src", "imagenes/LuffyStanding.gif")
+  zoro.setAttribute("src", "imagenes/zoro stand.gif")
   luffyVida();
   zoroVida();
 }
@@ -86,7 +88,6 @@ botonAtaque.addEventListener("click", () => {
   }
   zoro.setAttribute("src", "imagenes/zoro stand.gif");
   comprobarDefensaPlayer();
-  cambioPantallaId = setTimeout(cambioPantalla, 2400);
 });
 
 botonDefensa.addEventListener("click", () => {
@@ -290,7 +291,7 @@ function luffyVida() {
   } else if (player.health <= 0) {
     L1.style.visibility = "hidden";
     L2.style.visibility = "hidden";
-    L3.style.visibility = "hideen";
+    L3.style.visibility = "hidden";
     L4.style.visibility = "hidden";
     L5.style.visibility = "hidden";
     L6.style.visibility = "hidden";

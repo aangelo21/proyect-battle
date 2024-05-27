@@ -87,6 +87,7 @@ main {
   grid-area: botones;
   justify-self: center;
   align-self: self-start;
+  width: 75px;
 }
 
 #pantalla-game-over {
