@@ -58,12 +58,10 @@ main {
 }
 
 .texto-critico {
-  text-align: center;
   grid-area: critico;
-  font-family: "8BIT WONDER", sans-serif;
-  align-self: self-end;
-  justify-self: center;
-  font-size: 25px;
+  justify-content: center;
+  align-self: center;
+  width: 200px;
 }
 
 .personaje {
