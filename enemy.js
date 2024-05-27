@@ -12,7 +12,7 @@ class Enemy {
     this.width = 50;
     this.heigth = 50;
     this.health = 100;
-    this.attack = 200;
+    this.attack = 20;
     this.defence = 10;
     this.heal = 10;
     this.sprite = document.createElement("div");

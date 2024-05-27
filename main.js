@@ -16,6 +16,7 @@ let audioVictoria = document.getElementById("audio-victoria")
 let contador = 0;
 let timerId;
 let botonesId;
+let cambioPantallaId;
 
 
 audioInicio.play()
@@ -82,7 +83,7 @@ botonAtaque.addEventListener("click", () => {
   }
   zoro.setAttribute("src", "imagenes/zoro stand.gif");
   comprobarDefensaPlayer();
-  cambioPantalla();
+  cambioPantallaId = setTimeout(cambioPantalla, 2400)
 });
 
 botonDefensa.addEventListener("click", () => {
@@ -90,7 +91,7 @@ botonDefensa.addEventListener("click", () => {
   player.defend();
   console.log("Te proteges");
   comprobarDefensaPlayer();
-  cambioPantalla();
+  cambioPantallaId = setTimeout(cambioPantalla, 2400)
   contadorShield = contador + 3;
   console.log(contadorShield);
 });
@@ -101,7 +102,7 @@ botonCura.addEventListener("click", () => {
   console.log("Te curas");
   barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp";
   comprobarDefensaPlayer();
-  cambioPantalla();
+  cambioPantallaId = setTimeout(cambioPantalla, 2400)
   if (player.health === 100) {
     // Empty block
   }
@@ -111,7 +112,7 @@ allButtons[0].addEventListener("click", function () {
   allButtons[0].style.visibility = "hidden";
   botonesId = setTimeout(habilitarBotones, 2700);
   comprobarDefensaPlayer();
-  cambioPantalla();
+  cambioPantallaId = setTimeout(cambioPantalla, 2400)
   deshabilitarDefensa();
   timerId = setTimeout(turnoEnemigo, 1000);
   /* deshabilitarCura(); */
@@ -139,6 +140,7 @@ function cambioPantalla() {
     audioJuego.pause()
     audioVictoria.play()
   }
+
 }
 
 // Funciones
