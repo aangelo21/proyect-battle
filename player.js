@@ -43,7 +43,7 @@ class Player {
 
   attackMode() {
     let probCritico = Math.random();
-    if (probCritico <= 0.95) {
+    if (probCritico <= 0.05) {
       this.attack = 60;
       critico[0].style.visibility = "visible"
       criticoId = setTimeout(hideCritico, 2400)
