@@ -75,14 +75,12 @@ main {
   grid-area: barra-de-vida;
   justify-self: center;
   align-self: self-end;
-  
 }
 
 .barra-de-vida-2 {
   grid-area: barra-de-vida-enemigo;
   justify-self: center;
   align-self: self-end;
-  
 }
 
 .botones {
@@ -90,7 +88,6 @@ main {
   justify-self: center;
   align-self: self-start;
 }
-
 
 #pantalla-game-over {
   display: none;

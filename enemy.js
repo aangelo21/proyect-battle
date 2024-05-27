@@ -6,16 +6,16 @@ let defenceStatusEnemigo = false;
 let barraDeVidaEnemigo = document.getElementsByClassName("barra-de-vida-2");
 let zoro = document.getElementById("Zoro");
 let contadorShieldEnemy = -1;
-let Z1 = document.getElementById("Z1")
-let Z2 = document.getElementById("Z2")
-let Z3 = document.getElementById("Z3")
-let Z4 = document.getElementById("Z4")
-let Z5 = document.getElementById("Z5")
-let Z6 = document.getElementById("Z6")
-let Z7 = document.getElementById("Z7")
-let Z8 = document.getElementById("Z8")
-let Z9 = document.getElementById("Z9")
-let Z10 = document.getElementById("Z10")
+let Z1 = document.getElementById("Z1");
+let Z2 = document.getElementById("Z2");
+let Z3 = document.getElementById("Z3");
+let Z4 = document.getElementById("Z4");
+let Z5 = document.getElementById("Z5");
+let Z6 = document.getElementById("Z6");
+let Z7 = document.getElementById("Z7");
+let Z8 = document.getElementById("Z8");
+let Z9 = document.getElementById("Z9");
+let Z10 = document.getElementById("Z10");
 
 class Enemy {
   constructor() {
@@ -35,8 +35,7 @@ class Enemy {
 
   receiveDamage(damage) {
     this.health -= damage;
-    zoroVida ()
-    /* barraDeVidaEnemigo[0].innerText = this.health + " hp / 100 hp"; */
+    zoroVida();
   }
 
   attack() {
@@ -51,8 +50,8 @@ class Enemy {
     this.health += this.heal;
     if (this.health >= 100) {
       this.health = 100;
-      zoroVida ()
-      /* barraDeVidaEnemigo[0].innerText = this.health + " hp / 100 hp"; */
+      zoroVida();
+
       return this.health;
     }
     return this.health;
