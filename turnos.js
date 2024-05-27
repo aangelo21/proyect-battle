@@ -7,7 +7,7 @@ function turnoEnemigo() {
   if (enemigoTurno <= 0.33 && defenceStatusPersonaje === false && enemy.health > 0) {
     zoro.setAttribute("src", "imagenes/zoro.attack.gif");
     console.log("El enemigo te ataca");
-    player.receiveDamage(enemy.attack);
+    player.receiveDamage(enemy.attackModeEnemy());
     comprobarDefensaEnemigo();
     cambioPantallaId = setTimeout(cambioPantalla, 2400);
   } else if (enemigoTurno <= 0.33 && defenceStatusPersonaje === true && enemy.health > 0) {
@@ -61,7 +61,7 @@ function turnoEnemigo() {
   } else if (defenceStatusPersonaje === false && enemy.health > 0) {
     zoro.setAttribute("src", "imagenes/zoro.attack.gif");
     console.log("El enemigo te ataca");
-    player.receiveDamage(enemy.attack);
+    player.receiveDamage(enemy.attackModeEnemy());
     comprobarDefensaEnemigo();
     /* cambioPantallaId = setTimeout(cambioPantalla, 2400); */
   } else if (enemy.health <=0){

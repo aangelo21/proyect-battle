@@ -36,9 +36,8 @@ class Player {
     inicio.appendChild(this.sprite);
   }
 
-  receiveDamage() {
-    this.health -= enemy.attack;
-
+  receiveDamage(damage) {
+    this.health -= damage;
     luffyVida();
   }
 

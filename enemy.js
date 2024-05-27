@@ -3,6 +3,7 @@ let zoroStandingId;
 let zoroDefendingId;
 let zoroHealingId;
 let zoroLoseId;
+let damage2;
 let defenceStatusEnemigo = false;
 let barraDeVidaEnemigo = document.getElementsByClassName("barra-de-vida-2");
 let zoro = document.getElementById("Zoro");
@@ -34,12 +35,23 @@ class Enemy {
     inicio.appendChild(this.sprite);
   }
 
-  receiveDamage(damage) {
-    this.health -= damage;
+  receiveDamage(damage2) {
+    this.health -= damage2;
     zoroVida();
   }
 
   attack() {
+    return this.attack;
+  }
+
+  attackModeEnemy() {
+    let probCritico = Math.random();
+    if (probCritico <= 0.05) {
+      this.attack = 60;
+      console.log("TOMA HOSTION");
+    } else {
+      this.attack = 20;
+    }
     return this.attack;
   }
 
