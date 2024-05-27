@@ -8,6 +8,16 @@ let luffy = document.getElementById("Luffy");
 let dañoRecibido;
 let contadorShield = -1;
 let damage;
+let L1 = document.getElementById("L1")
+let L2 = document.getElementById("L2")
+let L3 = document.getElementById("L3")
+let L4 = document.getElementById("L4")
+let L5 = document.getElementById("L5")
+let L6 = document.getElementById("L6")
+let L7 = document.getElementById("L7")
+let L8 = document.getElementById("L8")
+let L9 = document.getElementById("L9")
+let L10 = document.getElementById("L10")
 
 class Player {
   constructor() {
@@ -28,6 +38,7 @@ class Player {
   receiveDamage() {
     this.health -= enemy.attack;
     /* barraDeVidaPlayer[0].innerText = this.health + " hp / 100 hp"; */
+    luffyVida()
   }
 
   attackMode() {
@@ -49,6 +60,7 @@ class Player {
     if (this.health >= 100) {
       this.health = 100;
       /* barraDeVidaPlayer[0].innerText = this.health + " hp / 100 hp"; */
+      luffyVida()
       return this.health;
     }
   }
@@ -71,3 +83,4 @@ function luffyHealing() {
   luffy.setAttribute("src", "imagenes/luffy heal.gif");
   clearTimeout(luffyHealingId);
 }
+

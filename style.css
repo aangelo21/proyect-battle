@@ -75,16 +75,14 @@ main {
   grid-area: barra-de-vida;
   justify-self: center;
   align-self: self-end;
-  font-family: "8BIT WONDER", sans-serif;
-  color: rgb(0, 0, 0);
-  font-size: 25px;
+  
 }
 
 .barra-de-vida-2 {
   grid-area: barra-de-vida-enemigo;
   justify-self: center;
   align-self: self-end;
- 
+  
 }
 
 .botones {

@@ -43,6 +43,8 @@ function restartGame() {
   contadorShieldEnemy = -1;
   defenceStatusEnemigo = false;
   defenceStatusPersonaje = false;
+  luffyVida()
+  zoroVida ()
   /* barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp";
   barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp"; */
 }
@@ -102,6 +104,7 @@ botonCura.addEventListener("click", () => {
   player.healing();
   console.log("Te curas");
   /* barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp"; */
+  luffyVida()
   comprobarDefensaPlayer();
   cambioPantallaId = setTimeout(cambioPantalla, 2400)
   if (player.health === 100) {
@@ -121,8 +124,10 @@ allButtons[0].addEventListener("click", function () {
 
 // Barra de vida inicio
 /* barraDeVidaPlayer[0].innerText = player.health + " hp / 100 hp";
-barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp"; */
 
+barraDeVidaEnemigo[0].innerText = enemy.health + " hp / 100 hp"; */
+luffyVida()
+zoroVida ()
 // Cambio de pantalla
 function cambioPantalla() {
   if (player.health <= 0 && enemy.health > 0) {
@@ -177,4 +182,267 @@ function comprobarDefensaPlayer() {
   } else {
     luffyDefendingId = setTimeout(luffyDefending, 1200);
   }
+}
+
+function luffyVida () {
+  if (player.health === 100){
+    L1.style.visibility = "visible"
+    L2.style.visibility = "visible"
+    L3.style.visibility = "visible"
+    L4.style.visibility = "visible"
+    L5.style.visibility = "visible"
+    L6.style.visibility = "visible"
+    L7.style.visibility = "visible"
+    L8.style.visibility = "visible"
+    L9.style.visibility = "visible"
+    L10.style.visibility = "visible"
+    console.log(player.health)
+  } else if (player.health === 90) {
+    L1.style.visibility = "visible"
+    L2.style.visibility = "visible"
+    L3.style.visibility = "visible"
+    L4.style.visibility = "visible"
+    L5.style.visibility = "visible"
+    L6.style.visibility = "visible"
+    L7.style.visibility = "visible"
+    L8.style.visibility = "visible"
+    L9.style.visibility = "visible"
+    L10.style.visibility = "hidden"
+    console.log(player.health)
+  } else if (player.health === 80) {
+    L1.style.visibility = "visible"
+    L2.style.visibility = "visible"
+    L3.style.visibility = "visible"
+    L4.style.visibility = "visible"
+    L5.style.visibility = "visible"
+    L6.style.visibility = "visible"
+    L7.style.visibility = "visible"
+    L8.style.visibility = "visible"
+    L9.style.visibility = "hidden"
+    L10.style.visibility = "hidden"
+    console.log(player.health)
+  } else if (player.health === 70) {
+    L1.style.visibility = "visible"
+    L2.style.visibility = "visible"
+    L3.style.visibility = "visible"
+    L4.style.visibility = "visible"
+    L5.style.visibility = "visible"
+    L6.style.visibility = "visible"
+    L7.style.visibility = "visible"
+    L8.style.visibility = "hidden"
+    L9.style.visibility = "hidden"
+    L10.style.visibility = "hidden"
+    console.log(player.health)
+  } else if (player.health === 60) {
+    L1.style.visibility = "visible"
+    L2.style.visibility = "visible"
+    L3.style.visibility = "visible"
+    L4.style.visibility = "visible"
+    L5.style.visibility = "visible"
+    L6.style.visibility = "visible"
+    L7.style.visibility = "hidden"
+    L8.style.visibility = "hidden"
+    L9.style.visibility = "hidden"
+    L10.style.visibility = "hidden"
+    console.log(player.health)
+  } else if (player.health === 50) {
+    L1.style.visibility = "visible"
+    L2.style.visibility = "visible"
+    L3.style.visibility = "visible"
+    L4.style.visibility = "visible"
+    L5.style.visibility = "visible"
+    L6.style.visibility = "hidden"
+    L7.style.visibility = "hidden"
+    L8.style.visibility = "hidden"
+    L9.style.visibility = "hidden"
+    L10.style.visibility = "hidden"
+    console.log(player.health)
+  } else if (player.health === 40) {
+    L1.style.visibility = "visible"
+    L2.style.visibility = "visible"
+    L3.style.visibility = "visible"
+    L4.style.visibility = "visible"
+    L5.style.visibility = "hidden"
+    L6.style.visibility = "hidden"
+    L7.style.visibility = "hidden"
+    L8.style.visibility = "hidden"
+    L9.style.visibility = "hidden"
+    L10.style.visibility = "hidden"
+    console.log(player.health)
+  } else if (player.health === 30) {
+    L1.style.visibility = "visible"
+    L2.style.visibility = "visible"
+    L3.style.visibility = "visible"
+    L4.style.visibility = "hidden"
+    L5.style.visibility = "hidden"
+    L6.style.visibility = "hidden"
+    L7.style.visibility = "hidden"
+    L8.style.visibility = "hidden"
+    L9.style.visibility = "hidden"
+    L10.style.visibility = "hidden"
+    console.log(player.health)
+  } else if (player.health === 20) {
+    L1.style.visibility = "visible"
+    L2.style.visibility = "visible"
+    L3.style.visibility = "hidden"
+    L4.style.visibility = "hidden"
+    L5.style.visibility = "hidden"
+    L6.style.visibility = "hidden"
+    L7.style.visibility = "hidden"
+    L8.style.visibility = "hidden"
+    L9.style.visibility = "hidden"
+    L10.style.visibility = "hidden"
+    console.log(player.health)
+  } else if (player.health === 10) {
+    L1.style.visibility = "visible"
+    L2.style.visibility = "hidden"
+    L3.style.visibility = "hidden"
+    L4.style.visibility = "hidden"
+    L5.style.visibility = "hidden"
+    L6.style.visibility = "hidden"
+    L7.style.visibility = "hidden"
+    L8.style.visibility = "hidden"
+    L9.style.visibility = "hidden"
+    L10.style.visibility = "hidden"
+    console.log(player.health)
+  } else if (player.health === 0) {
+    L1.style.visibility = "hidden"
+    L2.style.visibility = "hidden"
+    L3.style.visibility = "hideen"
+    L4.style.visibility = "hidden"
+    L5.style.visibility = "hidden"
+    L6.style.visibility = "hidden"
+    L7.style.visibility = "hidden"
+    L8.style.visibility = "hidden"
+    L9.style.visibility = "hidden"
+    L10.style.visibility = "hidden"
+    console.log(player.health)
+  } 
+  
+}
+
+function zoroVida () {
+  if (enemy.health === 100){
+    Z1.style.visibility = "visible"
+    Z2.style.visibility = "visible"
+    Z3.style.visibility = "visible"
+    Z4.style.visibility = "visible"
+    Z5.style.visibility = "visible"
+    Z6.style.visibility = "visible"
+    Z7.style.visibility = "visible"
+    Z8.style.visibility = "visible"
+    Z9.style.visibility = "visible"
+    Z10.style.visibility = "visible"
+  } else if (enemy.health === 90){
+    Z1.style.visibility = "visible"
+    Z2.style.visibility = "visible"
+    Z3.style.visibility = "visible"
+    Z4.style.visibility = "visible"
+    Z5.style.visibility = "visible"
+    Z6.style.visibility = "visible"
+    Z7.style.visibility = "visible"
+    Z8.style.visibility = "visible"
+    Z9.style.visibility = "visible"
+    Z10.style.visibility = "hidden"
+  } else if (enemy.health === 80) {
+    Z1.style.visibility = "visible"
+    Z2.style.visibility = "visible"
+    Z3.style.visibility = "visible"
+    Z4.style.visibility = "visible"
+    Z5.style.visibility = "visible"
+    Z6.style.visibility = "visible"
+    Z7.style.visibility = "visible"
+    Z8.style.visibility = "visible"
+    Z9.style.visibility = "hidden"
+    Z10.style.visibility = "hidden"
+  } else if (enemy.health === 70) {
+    Z1.style.visibility = "visible"
+    Z2.style.visibility = "visible"
+    Z3.style.visibility = "visible"
+    Z4.style.visibility = "visible"
+    Z5.style.visibility = "visible"
+    Z6.style.visibility = "visible"
+    Z7.style.visibility = "visible"
+    Z8.style.visibility = "hidden"
+    Z9.style.visibility = "hidden"
+    Z10.style.visibility = "hidden"
+  } else if (enemy.health === 60) {
+    Z1.style.visibility = "visible"
+    Z2.style.visibility = "visible"
+    Z3.style.visibility = "visible"
+    Z4.style.visibility = "visible"
+    Z5.style.visibility = "visible"
+    Z6.style.visibility = "visible"
+    Z7.style.visibility = "hidden"
+    Z8.style.visibility = "hidden"
+    Z9.style.visibility = "hidden"
+    Z10.style.visibility = "hidden"
+  } else if (enemy.health === 50) {
+    Z1.style.visibility = "visible"
+    Z2.style.visibility = "visible"
+    Z3.style.visibility = "visible"
+    Z4.style.visibility = "visible"
+    Z5.style.visibility = "visible"
+    Z6.style.visibility = "hidden"
+    Z7.style.visibility = "hidden"
+    Z8.style.visibility = "hidden"
+    Z9.style.visibility = "hidden"
+    Z10.style.visibility = "hidden"
+  } else if (enemy.health === 40) {
+    Z1.style.visibility = "visible"
+    Z2.style.visibility = "visible"
+    Z3.style.visibility = "visible"
+    Z4.style.visibility = "visible"
+    Z5.style.visibility = "hidden"
+    Z6.style.visibility = "hidden"
+    Z7.style.visibility = "hidden"
+    Z8.style.visibility = "hidden"
+    Z9.style.visibility = "hidden"
+    Z10.style.visibility = "hidden"
+  } else if (enemy.health === 30) {
+    Z1.style.visibility = "visible"
+    Z2.style.visibility = "visible"
+    Z3.style.visibility = "visible"
+    Z4.style.visibility = "hidden"
+    Z5.style.visibility = "hidden"
+    Z6.style.visibility = "hidden"
+    Z7.style.visibility = "hidden"
+    Z8.style.visibility = "hidden"
+    Z9.style.visibility = "hidden"
+    Z10.style.visibility = "hidden"
+  } else if (enemy.health === 20) {
+    Z1.style.visibility = "visible"
+    Z2.style.visibility = "visible"
+    Z3.style.visibility = "hidden"
+    Z4.style.visibility = "hidden"
+    Z5.style.visibility = "hidden"
+    Z6.style.visibility = "hidden"
+    Z7.style.visibility = "hidden"
+    Z8.style.visibility = "hidden"
+    Z9.style.visibility = "hidden"
+    Z10.style.visibility = "hidden"
+  } else if (enemy.health === 10) {
+    Z1.style.visibility = "visible"
+    Z2.style.visibility = "hidden"
+    Z3.style.visibility = "hidden"
+    Z4.style.visibility = "hidden"
+    Z5.style.visibility = "hidden"
+    Z6.style.visibility = "hidden"
+    Z7.style.visibility = "hidden"
+    Z8.style.visibility = "hidden"
+    Z9.style.visibility = "hidden"
+    Z10.style.visibility = "hidden"
+  } else if (enemy.health === 0) {
+    Z1.style.visibility = "hidden"
+    Z2.style.visibility = "hidden"
+    Z3.style.visibility = "hidden"
+    Z4.style.visibility = "hidden"
+    Z5.style.visibility = "hidden"
+    Z6.style.visibility = "hidden"
+    Z7.style.visibility = "hidden"
+    Z8.style.visibility = "hidden"
+    Z9.style.visibility = "hidden"
+    Z10.style.visibility = "hidden"
+  } 
+  
 }
