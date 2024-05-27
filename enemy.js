@@ -46,8 +46,10 @@ class Enemy {
 
   attackModeEnemy() {
     let probCritico = Math.random();
-    if (probCritico <= 0.05) {
+    if (probCritico <= 0.95) {
       this.attack = 60;
+      critico[0].style.visibility = "visible"
+      criticoId = setTimeout(hideCritico, 2400)
       console.log("TOMA HOSTION");
     } else {
       this.attack = 20;

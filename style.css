@@ -44,7 +44,7 @@ main {
     ". . barra-de-vida barra-de-vida . barra-de-vida-enemigo barra-de-vida-enemigo . ."
     ". . . . . . . . ."
     ". . . . . . . . ."
-    "botones . personaje personaje . enemigo enemigo . ."
+    "botones . personaje personaje critico enemigo enemigo . ."
     "botones . personaje personaje . enemigo enemigo . ."
     ". . . . . . . . .";
 }
@@ -52,6 +52,15 @@ main {
 .texto-juego {
   font-family: "8BIT WONDER", sans-serif;
   grid-area: logo;
+  align-self: self-end;
+  justify-self: center;
+  font-size: 25px;
+}
+
+.texto-critico {
+  text-align: center;
+  grid-area: critico;
+  font-family: "8BIT WONDER", sans-serif;
   align-self: self-end;
   justify-self: center;
   font-size: 25px;

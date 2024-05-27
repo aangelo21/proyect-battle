@@ -14,10 +14,12 @@ let audioInicio = document.getElementById("audio-inicio");
 let audioJuego = document.getElementById("audio-juego");
 let audioDerrota = document.getElementById("audio-derrota");
 let audioVictoria = document.getElementById("audio-victoria");
+let critico = document.getElementsByClassName("texto-critico")
 let contador = 0;
 let timerId;
 let botonesId;
 let cambioPantallaId;
+let criticoId;
 
 audioInicio.play();
 
@@ -31,6 +33,7 @@ let enemy = new Enemy();
 function startGame() {
   player.insertPlayer();
   enemy.insertEnemy();
+  critico[0].style.visibility = "hidden"
 }
 
 function restartGame() {
@@ -175,6 +178,10 @@ function comprobarDefensaPlayer() {
   } else {
     luffyDefendingId = setTimeout(luffyDefending, 1200);
   }
+}
+
+function hideCritico (){
+  critico[0].style.visibility = "hidden"
 }
 
 function luffyVida() {
