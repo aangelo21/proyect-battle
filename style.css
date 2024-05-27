@@ -61,7 +61,7 @@ main {
   grid-area: personaje;
   justify-self: center;
   align-self: center;
-  scale: 1.75;
+  scale: 1.6;
 }
 
 .enemigo {
