@@ -50,7 +50,6 @@ class Player {
       this.attack = 60;
       critico[0].style.visibility = "visible"
       criticoId = setTimeout(hideCritico, 2400)
-      console.log("TOMA CRITICO");
     } else {
       this.attack = 20;
     }
@@ -76,10 +75,12 @@ function luffyAtaca() {
   luffy.setAttribute("src", "imagenes/Luffyatacando.gif");
   clearTimeout(luffyAtacaId);
 }
+
 function luffyStanding() {
   luffy.setAttribute("src", "imagenes/LuffyStanding.gif");
   clearTimeout(luffyStandingId);
 }
+
 function luffyDefending() {
   luffy.setAttribute("src", "imagenes/Luffydefensa.gif");
   clearTimeout(luffyDefendingId);

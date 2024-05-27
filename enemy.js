@@ -46,11 +46,10 @@ class Enemy {
 
   attackModeEnemy() {
     let probCritico = Math.random();
-    if (probCritico <= 0.95) {
+    if (probCritico <= 0.05) {
       this.attack = 60;
       critico[0].style.visibility = "visible"
       criticoId = setTimeout(hideCritico, 2400)
-      console.log("TOMA HOSTION");
     } else {
       this.attack = 20;
     }
@@ -66,7 +65,6 @@ class Enemy {
     if (this.health >= 100) {
       this.health = 100;
       zoroVida();
-
       return this.health;
     }
     return this.health;
@@ -77,10 +75,12 @@ function zoroAtaca() {
   zoro.setAttribute("src", "imagenes/zoro.attack.gif");
   clearTimeout(zoroAtacaId);
 }
+
 function zoroStanding() {
   zoro.setAttribute("src", "imagenes/zoro stand.gif");
   clearTimeout(zoroStandingId);
 }
+
 function zoroDefending() {
   zoro.setAttribute("src", "imagenes/zoro defence.gif");
   clearTimeout(zoroDefendingId);

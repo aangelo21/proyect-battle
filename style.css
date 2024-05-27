@@ -55,7 +55,8 @@ main {
 }
 
 #creditos {
-  background-image: url(imagenes/Fondos/Lose.webp);
+  display: flex;
+  background-image: url(imagenes/Fondos/Creditos.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }

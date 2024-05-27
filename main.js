@@ -1,6 +1,8 @@
 let board = document.getElementsByClassName("container");
-let credito = document.getElementsByClassName("creditos");
+let credits = document.getElementsByClassName("creditos");
 let inicio = document.getElementById("pantalla-inicio");
+let botonInicio = document.getElementsByClassName("boton-inicio")
+let botonCreditos = document.getElementsByClassName("boton-creditos")
 let combate = document.getElementById("pantalla-juego");
 let gameOver = document.getElementById("pantalla-game-over");
 let victoria = document.getElementById("pantalla-victoria");
@@ -16,7 +18,6 @@ let audioJuego = document.getElementById("audio-juego");
 let audioDerrota = document.getElementById("audio-derrota");
 let audioVictoria = document.getElementById("audio-victoria");
 let critico = document.getElementsByClassName("texto-critico")
-let botonInicio = document.getElementsByClassName("boton-inicio")
 let contador = 0;
 let timerId;
 let botonesId;
@@ -25,7 +26,7 @@ let criticoId;
 
 audioInicio.play();
 
-// Personaje
+// Personajes
 
 let player = new Player();
 let enemy = new Enemy();
@@ -65,23 +66,20 @@ botonInicio[0].addEventListener("click", () => {
   startGame();
 });
 
-/*inicio.addEventListener("click", () => {
-  combate.style.display = "grid";
+botonCreditos[0].addEventListener("click", () => {
   inicio.style.display = "none";
-  audioInicio.pause();
-  audioJuego.play();
-  startGame();
-});*/
+  credits.style.display = "flex";
+});
 
 botonRestart[0].addEventListener("click", () => {
   gameOver.style.display = "none";
-  inicio.style.display = "flex";
+  inicio.style.display = "grid";
   restartGame();
 });
 
 botonWin[0].addEventListener("click", () => {
   victoria.style.display = "none";
-  inicio.style.display = "flex";
+  inicio.style.display = "grid";
   restartGame();
 });
 
@@ -94,10 +92,8 @@ botonAtaque.addEventListener("click", () => {
   }
   if (defenceStatusEnemigo === true) {
     defenceStatusEnemigo = false;
-    console.log("Rompes el escudo del enemigo");
   } else {
     enemy.receiveDamage(player.attackMode());
-    console.log("Atacas al enemigo");
   }
   zoro.setAttribute("src", "imagenes/zoro stand.gif");
   comprobarDefensaPlayer();
@@ -106,7 +102,6 @@ botonAtaque.addEventListener("click", () => {
 botonDefensa.addEventListener("click", () => {
   luffy.setAttribute("src", "imagenes/Luffydefensa.gif");
   player.defend();
-  console.log("Te proteges");
   comprobarDefensaPlayer();
   cambioPantallaId = setTimeout(cambioPantalla, 2400);
   contadorShield = contador + 3;
@@ -116,7 +111,6 @@ botonDefensa.addEventListener("click", () => {
 botonCura.addEventListener("click", () => {
   luffy.setAttribute("src", "imagenes/luffy heal.gif");
   player.healing();
-  console.log("Te curas");
   luffyVida();
   comprobarDefensaPlayer();
   cambioPantallaId = setTimeout(cambioPantalla, 2400);
