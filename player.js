@@ -39,6 +39,9 @@ class Player {
   receiveDamage(damage) {
     this.health -= damage;
     luffyVida();
+    if(this.health <= 0){
+      luffyLose();
+    }
   }
 
   attackMode() {

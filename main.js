@@ -1,4 +1,5 @@
 let board = document.getElementsByClassName("container");
+let credito = document.getElementsByClassName("creditos");
 let inicio = document.getElementById("pantalla-inicio");
 let combate = document.getElementById("pantalla-juego");
 let gameOver = document.getElementById("pantalla-game-over");
@@ -15,6 +16,7 @@ let audioJuego = document.getElementById("audio-juego");
 let audioDerrota = document.getElementById("audio-derrota");
 let audioVictoria = document.getElementById("audio-victoria");
 let critico = document.getElementsByClassName("texto-critico")
+let botonInicio = document.getElementsByClassName("boton-inicio")
 let contador = 0;
 let timerId;
 let botonesId;
@@ -55,13 +57,21 @@ function restartGame() {
 
 // Botones
 
-inicio.addEventListener("click", () => {
+botonInicio[0].addEventListener("click", () => {
   combate.style.display = "grid";
   inicio.style.display = "none";
   audioInicio.pause();
   audioJuego.play();
   startGame();
 });
+
+/*inicio.addEventListener("click", () => {
+  combate.style.display = "grid";
+  inicio.style.display = "none";
+  audioInicio.pause();
+  audioJuego.play();
+  startGame();
+});*/
 
 botonRestart[0].addEventListener("click", () => {
   gameOver.style.display = "none";

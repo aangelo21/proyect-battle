@@ -14,10 +14,48 @@ main {
 }
 
 #pantalla-inicio {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
   background-image: url(/imagenes/Fondos/Pantalla\ Inicio2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    ". . ."
+    ". boton-inicio ."
+    ". boton-creditos ."
+    ". . .";
+}
+
+.boton-inicio {
+  display: flex;
+    background-color: white;
+    grid-area: boton-inicio;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    font-family: "8BIT WONDER", sans-serif;
+    font-size: 32px;
+    width: 300px;
+}
+
+.boton-creditos {
+  display: flex;
+  background-color: white;
+  grid-area: boton-creditos;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    font-family: "8BIT WONDER", sans-serif;
+    font-size: 32px;
+    width: 300px;
+}
+
+#creditos {
+  background-image: url(imagenes/Fondos/Lose.webp);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -61,7 +99,7 @@ main {
   grid-area: critico;
   justify-content: center;
   align-self: center;
-  width: 200px;
+  width: 150px;
 }
 
 .personaje {
