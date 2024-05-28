@@ -22,7 +22,9 @@ let botonesId;
 let cambioPantallaId;
 let criticoId;
 
-audioInicio.play();
+window.onload = () => {
+  audioInicio.play();
+};
 
 // Personaje
 
