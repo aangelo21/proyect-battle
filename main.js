@@ -48,7 +48,7 @@ function restartGame() {
   defenceStatusEnemigo = false;
   defenceStatusPersonaje = false;
   luffy.setAttribute("src", "imagenes/LuffyStanding.gif")
-  zoro.setAttribute("src", "imagenes/zoro stand.gif")
+  zoro.setAttribute("src", "imagenes/Zoro stand.gif")
   luffyVida();
   zoroVida();
 }
@@ -89,7 +89,7 @@ botonAtaque.addEventListener("click", () => {
     enemy.receiveDamage(player.attackMode());
     console.log("Atacas al enemigo");
   }
-  zoro.setAttribute("src", "imagenes/zoro stand.gif");
+  zoro.setAttribute("src", "imagenes/Zoro stand.gif");
   comprobarDefensaPlayer();
 });
 
@@ -104,7 +104,7 @@ botonDefensa.addEventListener("click", () => {
 });
 
 botonCura.addEventListener("click", () => {
-  luffy.setAttribute("src", "imagenes/luffy heal.gif");
+  luffy.setAttribute("src", "imagenes/Luffy heal.gif");
   player.healing();
   console.log("Te curas");
   luffyVida();
@@ -156,10 +156,10 @@ function habilitarBotones() {
 
 function deshabilitarDefensa() {
   if (contadorShield >= contador) {
-    botonDefensa2.setAttribute("src", "imagenes/boton-defensa-deshab.png");
+    botonDefensa2.setAttribute("src", "imagenes/Boton-defensa-deshab.png");
     botonDefensa.setAttribute("disabled", "");
   } else {
-    botonDefensa2.setAttribute("src", "imagenes/boton-defensa.png");
+    botonDefensa2.setAttribute("src", "imagenes/Boton-defensa.png");
     botonDefensa.removeAttribute("disabled", "");
   }
 }

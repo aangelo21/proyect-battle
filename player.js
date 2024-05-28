@@ -83,12 +83,12 @@ function luffyDefending() {
 }
 
 function luffyHealing() {
-  luffy.setAttribute("src", "imagenes/luffy heal.gif");
+  luffy.setAttribute("src", "imagenes/Luffy heal.gif");
   clearTimeout(luffyHealingId);
 }
 
 function luffyLose(){
   clearTimeout(luffyStandingId)
-  luffy.setAttribute("src", "imagenes/luffy lose.gif")
+  luffy.setAttribute("src", "imagenes/Luffy lose.gif")
   clearTimeout(luffyLoseId)
 }
