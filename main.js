@@ -1,5 +1,6 @@
 let board = document.getElementsByClassName("container");
 let inicio = document.getElementById("pantalla-inicio");
+let botonInicio = document.getElementsByClassName("boton-inicio")
 let combate = document.getElementById("pantalla-juego");
 let gameOver = document.getElementById("pantalla-game-over");
 let victoria = document.getElementById("pantalla-victoria");
@@ -55,7 +56,7 @@ function restartGame() {
 
 // Botones
 
-inicio.addEventListener("click", () => {
+botonInicio[0].addEventListener("click", () => {
   combate.style.display = "grid";
   inicio.style.display = "none";
   audioInicio.pause();
