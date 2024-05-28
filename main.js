@@ -23,7 +23,7 @@ let cambioPantallaId;
 let criticoId;
 
 
- /*  audioInicio.play(); */
+audioInicio.play();
 
 
 // Personaje
