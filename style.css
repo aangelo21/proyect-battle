@@ -14,7 +14,7 @@ main {
 }
 
 #pantalla-inicio {
-  background-image: url(/imagenes/Fondos/PantallaInicio.png);
+  background-image: url("imagenes/Fondos/PantallaInicio.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: grid;
